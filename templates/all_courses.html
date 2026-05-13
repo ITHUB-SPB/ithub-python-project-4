@@ -1,5 +1,22 @@
 {% extends 'layout.html' %}
 
+{% block header %}
+<nav>
+  <a href="{% url 'courses' %}">Курсы</a>
+
+  {% if request.user.is_authenticated %}
+  <span>{{ request.user.username }}</span>
+  <form action="{% url 'logout' %}" method="get">
+    <button type="submit">Выйти</button>
+  </form>
+  {% else %}
+  <form action="{% url 'login' %}" method="get">
+    <button type="submit">Войти</button>
+  </form>
+  {% endif %}
+</nav>
+{% endblock %}
+
 {% block content %}
 <main>
   {% for course in courses %}

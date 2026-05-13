@@ -17,7 +17,6 @@ def login(request):
     password = request.POST.get('password')
 
     if user := auth.authenticate(request, username=username, password=password):
-        print(user, username, password)
         auth.login(request, user)
         return redirect(reverse('courses'))
 
@@ -60,4 +59,5 @@ def signup(request):
 
 
 def logout(request):
-    return
+    auth.logout(request)
+    return redirect(reverse('login'))

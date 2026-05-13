@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="{% static 'pico.css' %}">
 </head>
 <body>
-    <header>я шапка</header>
-    {% block content %}
-    {% endblock %}
+    <header>
+        {% block header %} {% endblock %}
+    </header>
+    {% block content %} {% endblock %}
     <footer>я подвал</footer>
 </body>
 </html>
