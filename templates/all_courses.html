@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<main>
+  {% for course in courses %}
+  <article>
+    <h2>
+      <a href="{% url 'course' course.id %}">{{ course.title }}</a>
+    </h2>
+    <p>{{ course.code }}</p>
+  </article>
+  {% endfor %}
+</main>
+{% endblock %}

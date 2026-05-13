@@ -1,0 +1,32 @@
+[
+  {
+    "model": "courses.course",
+    "pk": 10,
+    "fields": {
+      "title": "Фреймворки JavaScript",
+      "code": "3182.ФДС.26В",
+      "about": "Весна 3 курс JAVA, .NET",
+      "duration": 42,
+      "curriculum": null,
+      "course_start": null,
+      "course_end": null,
+      "created_at": "2026-10-10T09:30:00.0000Z",
+      "updated_at": "2026-10-10T09:30:00.0000Z"
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 11,
+    "fields": {
+      "title": "Технологии разработки с фреймворками на Python",
+      "code": "2132.ТРФ.26В",
+      "about": "Весна 2 курс ФТ",
+      "duration": 42,
+      "curriculum": null,
+      "course_start": null,
+      "course_end": null,
+      "created_at": "2026-10-10T09:30:00.0000Z",
+      "updated_at": "2026-10-10T09:30:00.0000Z"
+    }
+  }
+]

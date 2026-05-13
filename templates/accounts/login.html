@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<main>
+  {% if messages %}
+    {% for m in messages %}
+      <p>{{ m }}</p>
+    {% endfor %}
+  {% endif %}
+
+  <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <button type="submit">Войти</button>
+  </form>
+
+</main>
+{% endblock %}
