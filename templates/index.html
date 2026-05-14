@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Дисциплины</title>
+</head>
+<body>
+    <h2>Дисциплины</h2>
+
+    {% for d in disciplines %}
+    <article>
+        <h3>
+            <a href="{% url 'course' d.id %}">{{ d.code }} {{ d.title }}</a>
+        </h3>
+    </article>
+    {% endfor %}
+</body>
+</html>
