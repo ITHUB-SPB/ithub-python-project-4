@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Все курсы</title>
+</head>
+<body>
+    <h2>Курсы</h2>
+
+    {% for c in courses %}
+    <article>
+        <h3>
+            <a href="{% url 'course_detail' c.id %}">{{ c.code }} {{ c.title }}</a>
+        </h3>
+
+        <p>Длительность: {{ c.duration }} ак.ч.</p>
+    </article>
+    {% empty %}
+    <p>Вы пока не зачислены на курсы...</p>
+    {% endfor %}
+</body>
+</html>
