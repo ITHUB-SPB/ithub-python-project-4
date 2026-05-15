@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Детали курса</title>
-</head>
-<body>
-    <a href="{% url 'courses_list' %}">Назад</a>
-    <h2>{{ course.code }} {{ course.title }}</h2>
+{% extends '_layout.html' %}
 
-    <article>
-        <p>Длительность: {{ course.duration }} ак.ч.</p>
-    </article>
-</body>
-</html>
+{% block title %}
+{{ course.code }} {{ course.title }}
+{% endblock %}
+
+{% block content %}
+<article>
+    <p>Длительность: {{ course.duration }} ак.ч.</p>
+</article>
+{% endblock %}

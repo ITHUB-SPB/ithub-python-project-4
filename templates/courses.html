@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Все курсы</title>
-</head>
-<body>
-    <h2>Курсы</h2>
+{% extends '_layout.html' %}
 
+{% block title %}Курсы{% endblock %}
+
+{% block content %}
     {% for c in courses %}
     <article>
         <h3>
@@ -18,5 +14,4 @@
     {% empty %}
     <p>Вы пока не зачислены на курсы...</p>
     {% endfor %}
-</body>
-</html>
+{% endblock %}

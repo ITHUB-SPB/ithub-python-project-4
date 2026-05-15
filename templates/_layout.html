@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>noLXP</title>
+</head>
+<body>
+    {% if request.user.is_authenticated %}
+    <nav>
+      <a href="{% url 'courses_list' %}">Главная</a>
+      <span>{{ request.user.username }}</span>
+      <a href="/auth/logout">Выйти</a>
+    </nav>
+    {% endif %}
+
+    {% if messages %}
+      {% for m in messages %}
+      <p>{{ m }}</p>
+      {% endfor %}
+    {% endif %}
+
+    <h2>
+      {% block title %} {% endblock %}
+    </h2>
+
+    <main>
+      {% block content %} {% endblock %}
+    </main>
+</body>
+</html>
