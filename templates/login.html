@@ -1,0 +1,16 @@
+{% extends '_layout.html' %}
+
+{% block title %} Вход {% endblock %}
+
+{% block content %}
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <label for="username">Логин</label>
+    <input type="text" name="username" id="username" required>
+
+    <label for="password">Пароль</label>
+    <input type="password" name="password" id="password" required>
+
+    <button type="submit">Войти</button>
+</form>
+{% endblock %}

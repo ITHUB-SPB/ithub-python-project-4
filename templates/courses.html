@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>noLXP</title>
-</head>
-<body>
-    <h2>Дисциплины</h2>
+{% extends '_layout.html' %}
+
+{% block title %} Дисциплины {% endblock %}
+
+{% block content %}
 
     {% for d in disciplines %}
     <div>
@@ -13,5 +10,5 @@
         <a href="{% url 'detail' d.id %}">На страницу дисциплины</a>
     </div>
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}
