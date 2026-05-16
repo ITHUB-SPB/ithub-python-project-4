@@ -6,5 +6,12 @@
 </head>
 <body>
     <h2>Дисциплины</h2>
+
+    {% for d in disciplines %}
+    <div>
+        <h3>{{ d.code }} {{ d.title }}</h3>
+        <a href="/courses/{{ d.id }}">На страницу дисциплины</a>
+    </div>
+    {% endfor %}
 </body>
 </html>
