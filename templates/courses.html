@@ -10,7 +10,7 @@
     {% for d in disciplines %}
     <div>
         <h3>{{ d.code }} {{ d.title }}</h3>
-        <a href="/courses/{{ d.id }}">На страницу дисциплины</a>
+        <a href="{% url 'detail' d.id %}">На страницу дисциплины</a>
     </div>
     {% endfor %}
 </body>
