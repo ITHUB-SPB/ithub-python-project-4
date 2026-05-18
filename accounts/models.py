@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
 
-from lms.models import Group
+from students.models import Group
 
 class UserManager(BaseUserManager):
     def create_user(self, *, username, password, **extra_fields):

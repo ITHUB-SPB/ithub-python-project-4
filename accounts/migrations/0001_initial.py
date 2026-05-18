@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('auth', '0012_alter_user_first_name_max_length'),
-        ('lms', '0001_initial'),
+        ('students', '0001_initial'),
     ]
 
     operations = [
@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('middle_name', models.CharField(max_length=30, verbose_name='отчество')),
                 ('is_staff', models.BooleanField(default=False, verbose_name='сотрудник')),
                 ('is_superuser', models.BooleanField(default=False, verbose_name='менеджер')),
-                ('group', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='students', to='lms.group', verbose_name='группа')),
+                ('group', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='students', to='students.group', verbose_name='группа')),
                 ('groups', models.ManyToManyField(blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.', related_name='user_set', related_query_name='user', to='auth.group', verbose_name='groups')),
                 ('user_permissions', models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.permission', verbose_name='user permissions')),
             ],

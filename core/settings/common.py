@@ -13,7 +13,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "accounts.apps.AccountsConfig",
-    "lms.apps.LmsConfig",
+    "students.apps.LmsConfig",
 ]
 
 MIDDLEWARE = [
@@ -29,7 +29,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "lms" / "templates", BASE_DIR / "accounts" / "templates"],
+        "DIRS": [BASE_DIR / "students" / "templates", BASE_DIR / "accounts" / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
