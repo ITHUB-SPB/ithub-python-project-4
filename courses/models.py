@@ -1,4 +1,5 @@
 from django.db import models
+from staff.models import Staff
 
 
 class Discipline(models.Model):
@@ -19,12 +20,16 @@ class Course(models.Model):
     course_end = models.DateField(null=True)
 
     discipline = models.ForeignKey(Discipline, on_delete=models.SET_NULL, null=True, blank=True)
-    teacher = models.ForeignKey(Discipline, on_delete=models.SET_NULL, null=True, blank=True)
+    teacher = models.ForeignKey(Staff, on_delete=models.SET_NULL, null=True, blank=True)
 
 
     class Meta:
-        verbose_name = 'Дисциплина'
-        verbose_name_plural = 'Дисциплины'
+        verbose_name = 'Курс'
+        verbose_name_plural = 'Курсы'
 
     def __str__(self):
-        return f'{self.code} «{self.title}» ({self.duration} ак.ч)'
+        code = self.discipline.code if self.discipline else ''
+        title = self.discipline.title if self.discipline else ''
+        teacher = self.teacher.lastname if self.teacher else ''
+
+        return f'{code} «{title}» ({teacher})'
