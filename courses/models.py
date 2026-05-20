@@ -1,6 +1,6 @@
 from django.db import models
 from staff.models import Staff
-
+from students.models import Group
 
 class Discipline(models.Model):
     title = models.CharField(max_length=50, null=False, blank=False)
@@ -21,7 +21,7 @@ class Course(models.Model):
 
     discipline = models.ForeignKey(Discipline, on_delete=models.SET_NULL, null=True, blank=True)
     teacher = models.ForeignKey(Staff, on_delete=models.SET_NULL, null=True, blank=True)
-
+    group = models.ForeignKey(Group, on_delete=models.CASCADE, null=False, related_name='learning_course')
 
     class Meta:
         verbose_name = 'Курс'
@@ -30,6 +30,6 @@ class Course(models.Model):
     def __str__(self):
         code = self.discipline.code if self.discipline else ''
         title = self.discipline.title if self.discipline else ''
-        teacher = self.teacher.lastname if self.teacher else ''
+        teacher = self.teacher or ''
 
-        return f'{code} «{title}» ({teacher})'
+        return f'{code} «{title}» ({self.group}, {teacher})'

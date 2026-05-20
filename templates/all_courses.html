@@ -22,9 +22,9 @@
   {% for course in courses %}
   <article>
     <h2>
-      <a href="{% url 'course' course.id %}">{{ course.title }}</a>
+      <a href="{% url 'course' course.id %}">{{ course.discipline.title }}</a>
     </h2>
-    <p>{{ course.code }}</p>
+    <p>{{ course.discipline.code }}</p>
   </article>
   {% endfor %}
 </main>

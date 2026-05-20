@@ -1,11 +1,31 @@
 {% extends 'layout.html' %}
 
+
+{% block header %}
+<nav>
+  <a href="{% url 'courses' %}">Курсы</a>
+
+  {% if request.user.is_authenticated %}
+  <span>{{ request.user.username }}</span>
+  <form action="{% url 'logout' %}" method="get">
+    <button type="submit">Выйти</button>
+  </form>
+  {% else %}
+  <form action="{% url 'login' %}" method="get">
+    <button type="submit">Войти</button>
+  </form>
+  {% endif %}
+</nav>
+{% endblock %}
+
 {% block content %}
 <main>
 
   <article>
-    <h2>{{ course.title }}</h2>
-    <p>{{ course.code }}</p>
+    <h2>{{ course.discipline.title }}</h2>
+    <p>{{ course.discipline.code }}</p>
+    <p>{{ course.about }}</p>
+    <p>{{ course.course_start}} - {{ course.course_end }}</p>
   </article>
 
 </main>

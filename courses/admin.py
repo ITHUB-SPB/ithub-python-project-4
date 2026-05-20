@@ -10,8 +10,9 @@ class DisciplineAdmin(admin.ModelAdmin):
 
 class CourseAdmin(admin.ModelAdmin):
     list_display = ['discipline__code', 'discipline__title', 'discipline__duration', 'course_start',
-                    'course_end', 'teacher']
-    list_filter = ['teacher', 'discipline__duration', 'course_start', 'course_end']
+                    'course_end', 'teacher', 'group']
+    list_filter = ['teacher', 'discipline__duration', 'course_start', 'course_end', 'group__title',
+                   'group__course']
     search_fields = ['discipline__code', 'discipline__title']
 
 
