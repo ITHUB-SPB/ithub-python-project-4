@@ -7,7 +7,10 @@ env = Env(
     PYTHON_ENVIRONMENT=(str, "DEVELOPMENT"),
 )
 
-Env.read_env(BASE_DIR / ".env", overwrite=True)
+Env.read_env(BASE_DIR / ".env.local", overwrite=True)
 
-if env("PYTHON_ENVIRONMENT"):
+print(BASE_DIR)
+print(env)
+
+if env("PYTHON_ENVIRONMENT") == "PRODUCTION":
     Env.read_env(BASE_DIR / ".env.production", overwrite=True)
