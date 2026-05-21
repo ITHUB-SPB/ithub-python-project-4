@@ -20,3 +20,8 @@ def login(request):
     messages.success(request, message='С возвращением!')
 
     return redirect(reverse('courses_list'))
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect(reverse('login'))

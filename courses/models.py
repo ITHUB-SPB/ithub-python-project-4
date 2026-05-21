@@ -1,13 +1,19 @@
 from django.db import models
+from students.models import Group
 
 class Discipline(models.Model):
-    code = models.CharField(max_length=15, unique=True, null=False)
     title = models.CharField(max_length=50, null=False)
     duration = models.PositiveIntegerField(null=False, verbose_name='длительность')
 
     def __str__(self):
-        return f'{self.code} {self.title} ({self.duration} ак.ч.)'
+        return f'{self.title} ({self.duration} ак.ч.)'
 
     class Meta:
         verbose_name = 'Дисциплина'
         verbose_name_plural = 'Дисциплины'
+
+
+class Course(models.Model):
+    code = models.CharField(max_length=15, unique=False, null=False)
+    discipline = models.ForeignKey(Discipline, on_delete=models.SET_NULL, null=True)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE, null=False, related_name='students_group')

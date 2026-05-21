@@ -6,10 +6,10 @@
     {% for c in courses %}
     <article>
         <h3>
-            <a href="{% url 'course_detail' c.id %}">{{ c.code }} {{ c.title }}</a>
+            <a href="{% url 'course_detail' c.id %}">{{ c.code }} {{ c.discipline.title }}</a>
         </h3>
 
-        <p>Длительность: {{ c.duration }} ак.ч.</p>
+        <p>Длительность: {{ c.discipline.duration }} ак.ч.</p>
     </article>
     {% empty %}
     <p>Вы пока не зачислены на курсы...</p>
