@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Дисциплины</title>
-</head>
-<body>
-    <a href="{% url 'courses' %}">Назад</a>
-    <h2>{{ discipline.code }} {{ discipline.title }}</h2>
-    <p>Кол-во часов изучения: {{ discipline.duration }} ак.ч.</p>
-</body>
-</html>
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{ discipline.code }} {{ discipline.title }}
+{% endblock %}
+
+{% block content %}
+<p>Кол-во часов изучения: {{ discipline.duration }} ак.ч.</p>
+{% endblock %}
