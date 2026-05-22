@@ -17,3 +17,15 @@ class Course(models.Model):
     code = models.CharField(max_length=15, unique=False, null=False)
     discipline = models.ForeignKey(Discipline, on_delete=models.SET_NULL, null=True)
     group = models.ForeignKey(Group, on_delete=models.CASCADE, null=False, related_name='students_group')
+
+
+class Topic(models.Model):
+    title = models.CharField(max_length=50, null=False)
+    content = models.TextField(null=False)
+    duration = models.PositiveIntegerField(null=False, verbose_name='длительность')
+
+    discipline = models.ForeignKey(Discipline, on_delete=models.SET_NULL, null=True)
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
+
+

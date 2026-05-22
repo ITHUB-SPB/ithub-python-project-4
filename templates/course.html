@@ -6,6 +6,19 @@
 
 {% block content %}
 <article>
-    <p>Длительность: {{ course.duration }} ак.ч.</p>
+    <p>Длительность: {{ course.discipline.duration }} ак.ч.</p>
+
+    {% for topic in course.discipline.topic_set.all %}
+        <section>
+            {{ topic.title }}
+        </section>
+    {% endfor %}
+
+    {% for assignment in course.discipline.assignment_set.all %}
+        <section>
+            {{ assignment.title }}
+        </section>
+    {% endfor %}
+
 </article>
 {% endblock %}

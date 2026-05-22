@@ -17,7 +17,7 @@ def index(request):
 
 @login_required(login_url=reverse_lazy('login'))
 def detail(request, course_id):
-    course = models.Discipline.objects.get(pk=course_id)
+    course = models.Course.objects.get(pk=course_id)
 
     return render(
         request,

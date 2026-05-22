@@ -14,5 +14,12 @@ class CourseAdmin(admin.ModelAdmin):
     search_fields = ['code', 'discipline__title']
 
 
+class TopicAdmin(admin.ModelAdmin):
+    list_display = ['title', 'discipline', 'updated_at']
+    list_filter = ['updated_at', 'discipline']
+    search_fields = ['title', 'discipline__title']
+
+
 admin.site.register(models.Course, CourseAdmin)
 admin.site.register(models.Discipline, DisciplineAdmin)
+admin.site.register(models.Topic, TopicAdmin)

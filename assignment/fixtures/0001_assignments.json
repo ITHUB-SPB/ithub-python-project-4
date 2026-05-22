@@ -1,0 +1,24 @@
+[
+  {
+    "model": "assignment.assignment",
+    "pk": 1,
+    "fields": {
+      "title": "КТ №1 Изучение функций",
+      "content": "Выполните задания на функции",
+      "weight": 6,
+      "discipline_id": 1,
+      "updated_at": "2026-05-20"
+    }
+  },
+  {
+    "model": "assignment.assignment",
+    "pk": 2,
+    "fields": {
+      "title": "КТ №2 Изучение замыканий",
+      "content": "Реализуйте замыкания",
+      "weight": 4,
+      "discipline_id": 1,
+      "updated_at": "2026-05-20"
+    }
+  }
+]
