@@ -5,6 +5,6 @@
 {% block content %}
     <a href="{% url 'index' %}">Назад</a>
 
-    <h2>{{ discipline.code }} {{ discipline.title }}</h2>
-    <p>Кол-во часов изучения: {{ discipline.duration }} ак.ч</p>
+    <h2>{{ course.code }} {{ course.discipline.title }}</h2>
+    <p>Кол-во часов изучения: {{ course.discipline.duration }} ак.ч</p>
 {% endblock %}

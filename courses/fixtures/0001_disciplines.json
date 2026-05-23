@@ -1,0 +1,18 @@
+[
+  {
+    "model": "courses.discipline",
+    "pk": 4,
+    "fields": {
+      "title": "Программирование на Java",
+      "duration": 42
+    }
+  },
+  {
+    "model": "courses.discipline",
+    "pk": 5,
+    "fields": {
+      "title": "Методология управления",
+      "duration": 84
+    }
+  }
+]

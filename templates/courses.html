@@ -1,13 +1,12 @@
 {% extends '_layout.html' %}
 
-{% block title %} Дисциплины {% endblock %}
+{% block title %} Курсы {% endblock %}
 
 {% block content %}
-
-    {% for d in disciplines %}
+    {% for c in courses %}
     <div>
-        <h3>{{ d.code }} {{ d.title }}</h3>
-        <a href="{% url 'detail' d.id %}">На страницу дисциплины</a>
+        <h3>{{ c.code }} {{ c.discipline.title }}</h3>
+        <a href="{% url 'detail' c.id %}">На страницу курса</a>
     </div>
     {% endfor %}
 

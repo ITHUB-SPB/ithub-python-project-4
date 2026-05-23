@@ -1,0 +1,32 @@
+[
+  {
+    "model": "courses.course",
+    "pk": 1,
+    "fields": {
+      "code": "2510.МУП.26В",
+      "discipline": 5,
+      "group": 1,
+      "teacher": 1
+    }
+  },
+    {
+    "model": "courses.course",
+    "pk": 2,
+    "fields": {
+      "code": "2507.ПНД.26В",
+      "discipline": 4,
+      "group": 2,
+      "teacher": 1
+    }
+  },
+    {
+    "model": "courses.course",
+    "pk": 3,
+    "fields": {
+      "code": "2442.ПНД.26О",
+      "discipline": 4,
+      "group": 1,
+      "teacher": 1
+    }
+  }
+]
