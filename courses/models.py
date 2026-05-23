@@ -6,6 +6,8 @@ from staff.models import Teacher
 class Discipline(models.Model):
 	title = models.CharField(max_length=50, null=False)
 	duration = models.PositiveSmallIntegerField(null=False, verbose_name='Длительность')
+	created_at = models.DateTimeField(auto_now_add=True)
+	updated_at = models.DateTimeField(auto_now=True)
 
 	def __str__(self):
 		return f'{self.title} ({self.duration} ак.ч.)'

@@ -12,6 +12,12 @@ class Group(models.Model):
 	title = models.CharField(max_length=10, null=False, unique=True)
 	year = models.CharField(choices=Year, null=False)
 
+	class Meta:
+		ordering = ['year', '-title']
+		indexes = [
+			models.Index(fields=['year'])
+		]
+
 
 class Student(models.Model):
 	first_name = models.CharField(max_length=20, null=False)
