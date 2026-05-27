@@ -1,0 +1,35 @@
+[
+    {
+        "model": "students.student",
+        "pk": 1,
+        "fields": {
+            "first_name": "Люк",
+            "last_name": "Скайвокер",
+            "middle_name": "Энаконович",
+            "account": 1,
+            "group": 1
+        }
+    },
+    {
+        "model": "students.student",
+        "pk": 2,
+        "fields": {
+            "first_name": "Хан",
+            "last_name": "Соло",
+            "middle_name": "deleted",
+            "account": 2,
+            "group": 2
+        }
+    },
+    {
+        "model": "students.student",
+        "pk": 3,
+        "fields": {
+            "first_name": "Лея",
+            "last_name": "Скайвокер",
+            "middle_name": "Энаконовна",
+            "account": 3,
+            "group": 1
+        }
+    }
+]

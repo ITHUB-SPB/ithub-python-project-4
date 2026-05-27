@@ -1,4 +1,5 @@
 from django.contrib import admin
-from unfold.admin import ModelAdmin
+from students.models import Group, Student
 
-# Register your models here.
+admin.site.register(Group)
+admin.site.register(Student)

@@ -1,0 +1,80 @@
+[
+    {
+        "model": "accounts.user",
+        "pk": 1,
+        "fields": {
+            "username": "student_1",
+            "password": "password_1_",
+            "first_name": "Люк",
+            "last_name": "Скайвокер",
+            "middle_name": "Энаконович",
+            "is_staff": false,
+            "is_superuser": false
+        }
+    },
+    {
+        "model": "accounts.user",
+        "pk": 2,
+        "fields": {
+            "username": "student_2",
+            "password": "password_2_",
+            "first_name": "Хан",
+            "last_name": "Соло",
+            "middle_name": "deleted",
+            "is_staff": false,
+            "is_superuser": false
+        }
+    },
+    {
+        "model": "accounts.user",
+        "pk": 3,
+        "fields": {
+            "username": "student_3",
+            "password": "password_3_",
+            "first_name": "Лея",
+            "last_name": "Скайвокер",
+            "middle_name": "Энаконовна",
+            "is_staff": false,
+            "is_superuser": false
+        }
+    },
+    {
+        "model": "accounts.user",
+        "pk": 11,
+        "fields": {
+            "username": "teacher_1",
+            "password": "password_1_",
+            "first_name": "Энакин",
+            "last_name": "Скайвокер",
+            "middle_name": "deleted",
+            "is_staff": true,
+            "is_superuser": false
+        }
+    },
+    {
+        "model": "accounts.user",
+        "pk": 12,
+        "fields": {
+            "username": "teacher_2",
+            "password": "password_2_",
+            "first_name": "Prepod",
+            "last_name": "Neprepod",
+            "middle_name": "deleted",
+            "is_staff": true,
+            "is_superuser": false
+        }
+    },
+    {
+        "model": "accounts.user",
+        "pk": 13,
+        "fields": {
+            "username": "manager_1",
+            "password": "password_3_",
+            "first_name": "Виктория",
+            "last_name": "Nofamaly",
+            "middle_name": "Викторовна",
+            "is_staff": true,
+            "is_superuser": false
+        }
+    }
+]

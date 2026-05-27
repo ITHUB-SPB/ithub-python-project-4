@@ -1,0 +1,113 @@
+[
+    {
+        "model": "courses.discipline",
+        "pk": 1,
+        "fields": {
+            "title": "Data Bases",
+            "duration": 120,
+            "curriculum": "",
+            "created_at": "2026-05-27T10:00:00Z",
+            "updated_at": "2026-05-27T10:00:00Z"
+        }
+    },
+    {
+        "model": "courses.discipline",
+        "pk": 2,
+        "fields": {
+            "title": "С#",
+            "duration": 120,
+            "curriculum": "",
+            "created_at": "2026-05-28T10:00:00Z",
+            "updated_at": "2026-05-28T10:00:00Z"
+        }
+    },
+    {
+        "model": "courses.discipline",
+        "pk": 3,
+        "fields": {
+            "title": "C++",
+            "duration": 120,
+            "curriculum": "",
+            "created_at": "2026-05-29T10:00:00Z",
+            "updated_at": "2026-05-29T10:00:00Z"
+        }
+    },
+    {
+        "model": "courses.course",
+        "pk": 1,
+        "fields": {
+            "code": "DB-101",
+            "about": "Основы Data Base",
+            "course_start": "2026-06-01",
+            "course_end": "2026-09-01",
+            "discipline": 1,
+            "group": 1,
+            "teacher": 1
+        }
+    },
+    {
+        "model": "courses.course",
+        "pk": 2,
+        "fields": {
+            "code": "DB-102",
+            "about": "Основы Data Base",
+            "course_start": "2026-06-02",
+            "course_end": "2026-09-02",
+            "discipline": 1,
+            "group": 2,
+            "teacher": 1
+        }
+    },
+    {
+        "model": "courses.course",
+        "pk": 3,
+        "fields": {
+            "code": "SH-101",
+            "about": "Основы C#",
+            "course_start": "2026-06-03",
+            "course_end": "2026-09-03",
+            "discipline": 2,
+            "group": 1,
+            "teacher": 2
+        }
+    },
+    {
+        "model": "courses.course",
+        "pk": 4,
+        "fields": {
+            "code": "SH-102",
+            "about": "Основы C#",
+            "course_start": "2026-06-04",
+            "course_end": "2026-09-04",
+            "discipline": 2,
+            "group": 2,
+            "teacher": 2
+        }
+    },
+    {
+        "model": "courses.course",
+        "pk": 5,
+        "fields": {
+            "code": "SPP-101",
+            "about": "Основы C++",
+            "course_start": "2026-06-05",
+            "course_end": "2026-09-05",
+            "discipline": 3,
+            "group": 1,
+            "teacher": 1
+        }
+    },
+    {
+        "model": "courses.course",
+        "pk": 6,
+        "fields": {
+            "code": "SPP-102",
+            "about": "Основы C++",
+            "course_start": "2026-06-06",
+            "course_end": "2026-09-06",
+            "discipline": 3,
+            "group": 2,
+            "teacher": 1
+        }
+    }
+]

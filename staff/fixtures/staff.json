@@ -1,0 +1,32 @@
+[
+  {
+    "model": "staff.teacher",
+    "pk": 1,
+    "fields": {
+      "first_name": "Энакин",
+      "last_name": "Скайвокер",
+      "middle_name": "deleted",
+      "account": 11
+    }
+  },
+  {
+    "model": "staff.teacher",
+    "pk": 2,
+    "fields": {
+      "first_name": "Prepod",
+      "last_name": "Neprepod",
+      "middle_name": "deleted",
+      "account": 12
+    }
+  },
+  {
+    "model": "staff.manager",
+    "pk": 3,
+    "fields": {
+      "first_name": "Виктория",
+      "last_name": "Nofamaly",
+      "middle_name": "Викторовна",
+      "account": 13
+    }
+  }
+]

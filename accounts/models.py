@@ -1,8 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
 
-from students.models import Group
-
 class UserManager(BaseUserManager):
     def create_user(self, *, username, password, **extra_fields):
         if not username:
@@ -33,23 +31,18 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(unique=True, null=False, blank=False, verbose_name='логин')
 
-    first_name = models.CharField(max_length=30, verbose_name='имя')
-    last_name = models.CharField(max_length=30, verbose_name='фамилия')
-    middle_name = models.CharField(max_length=30, verbose_name='отчество')
-
-    group = models.ForeignKey(Group, null=True, on_delete=models.CASCADE, related_name='students', verbose_name='группа')
-
     is_staff = models.BooleanField(default=False, verbose_name='сотрудник')
     is_superuser = models.BooleanField(default=False, verbose_name='менеджер')
 
     objects = UserManager()
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['first_name', 'last_name']
+    REQUIRED_FIELDS = []
 
     class Meta:
-        verbose_name = "Пользователь"
-        verbose_name_plural = "Пользователи"
+        verbose_name = "Аккаунт"
+        verbose_name_plural = "Аккаунты"
 
     def __str__(self):
-        return f'{self.username} ({self.last_name} {self.first_name})'
+        role = 'суперадмин' if self.is_superuser else 'сотрудник' if self.is_staff else 'студент'
+        return f'{self.username} ({role})'
