@@ -50,4 +50,5 @@ class Assignment(models.Model):
 class Submission(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     assignment = models.ForeignKey(Assignment, on_delete=models.CASCADE)
+    answer = models.TextField(null=False)
     score = models.PositiveIntegerField(null=True, blank=True, default=0)

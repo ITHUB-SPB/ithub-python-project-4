@@ -37,7 +37,11 @@
       <tbody>
         {% for topic in course.discipline.topic_set.all %}
         <tr>
-          <td>{{ topic.title }}</td>
+          <td>
+            <a href="{% url 'topic' topic.id %}">
+              {{ topic.title }}
+            </a>
+          </td>
           <td>???</td>
         </tr>
         {% endfor %}
