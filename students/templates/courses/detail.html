@@ -1,0 +1,5 @@
+<h1>{{ course.discipline.title }}</h1>
+<p>Группа: {{ course.group.name }}</p>
+<p>Преподаватель: {{ course.teacher.username|default:"Не назначен" }}</p>
+<p>Описание: {{ course.about }}</p>
+<a href="{% url 'courses_list' %}">Назад к списку</a>
