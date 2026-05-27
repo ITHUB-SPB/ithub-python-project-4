@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+            {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">  </head>
+
+
+  </head>
+  <body>
+    <header>
+        <img src="" alt="" class="logo" />
+
+        <div class="profile" style="position: relative;">
+          <h1>{{ user.student.surname }} {{ user.student.name.0 }}.</h1>
+          <div
+            class="pfp"
+            onclick="document.getElementById('menu').style.display = 'block'"
+          >
+            {{ user.student.surname.0 }}{{ user.student.name.0 }}
+          </div>
+          <div
+            id="menu"
+            style="
+              display: none;
+              position: absolute;
+              background: white;
+              border: #93abbc 1px solid;
+              top:85px;
+              right:0;
+            "
+            onmouseleave="this.style.display = 'none'"
+          >
+            <form method="post" action="{% url 'accounts:logout' %}">
+              {% csrf_token %}
+              <button type="submit">Выйти</button>
+            </form>
+            <a href="/admin/"><button>Админка</button></a>
+          </div>
+        </div>
+</header>
+
+    <main>
+      <h1>{{ course.code }} — {{ course.discipline.title }}</h1>
+      <p>{{ course.about }}</p>
+
+      <h2>темы</h2>
+
+      {% for item in items %} {% if item.is_assignment %}
+      <div class="assignment">
+        <h3>
+          <a href="{% url 'courses:assignment' item.pk %}">
+          {{ item.title }}
+          </a>
+          (макс {{ item.weight }} баллов)
+        </h3>
+      </div>
+      {% else %}
+      <div class="topic">
+        <h3>
+          <a href="{% url 'courses:topic_detail' item.pk %}">
+            {{ item.title }}
+          </a>
+        </h3>
+        <p>{{ item.content|truncatewords:10 }}</p>
+      </div>
+      {% endif %}
+       {% empty %}
+      <p>пусто</p>
+      {% endfor %}
+
+      <a href="{% url 'courses:list' %}">← Назад к списку курсов</a>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+админ
+admin adminpswrd
+
+менеджер
+manager 1manager1pswrd
+
+учителя
+tFirst 1tpassword
+tSecond 2tpassword
+
+ученики
+first firstpswrd
+second second2pswrd

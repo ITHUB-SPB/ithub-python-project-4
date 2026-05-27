@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ebf1f5;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile {
+  display: flex;
+  gap: 20px;
+}
+.pfp {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #4a90d9;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: #93abbc 1px solid;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  align-self: center;
+}
+#menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  overflow: hidden;
+}
+#menu button,
+#menu a {
+  width: 100%;
+  height: 35%;
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  background-color: #ebf1f5;
+  border: none;
+}
+
+header {
+  padding: 15px;
+  min-width: 100%;
+  max-height: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-bottom: #bfc9d0 solid 1px;
+  margin-bottom: 20px;
+}
+
+main {
+  border-radius: 20px;
+  padding: 20px;
+  background-color: white;
+  width: 90%;
+  height: 100%;
+}
+
+.disciplines {
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  width: 100%;
+  text-align: left;
+  padding: 8px;
+  border: #93abbc 1px solid;
+  border-radius: 10px;
+  background-color: #ebf1f5;
+}
+
+.disciplines td,
+th {
+  border-bottom: #bfc9d0 solid 1px;
+  border-left: none;
+  border-right: none;
+  padding-left: 17px;
+}
+
+.disciplines tbody tr:last-child td {
+  border-bottom: none;
+}
+
+#courses-body td {
+  height: 90px;
+}
+
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  border-radius: 30px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+.login form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

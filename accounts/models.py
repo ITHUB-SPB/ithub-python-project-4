@@ -31,12 +31,12 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(unique=True, null=False, blank=False, verbose_name='логин')
 
-    is_staff = models.BooleanField(default=False, verbose_name='сотрудник')
-    is_superuser = models.BooleanField(default=False, verbose_name='менеджер')
+    is_staff = models.BooleanField(default=False, verbose_name="сотрудник")
+    is_superuser = models.BooleanField(default=False, verbose_name="менеджер")
 
     objects = UserManager()
 
-    USERNAME_FIELD = 'username'
+    USERNAME_FIELD = "username"
     REQUIRED_FIELDS = []
 
     class Meta:
@@ -44,5 +44,5 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = "Аккаунты"
 
     def __str__(self):
-        role = 'суперадмин' if self.is_superuser else 'сотрудник' if self.is_staff else 'студент'
+        role = "менеджер" if self.is_superuser else "сотрудник" if self.is_staff else "студент"
         return f'{self.username} ({role})'

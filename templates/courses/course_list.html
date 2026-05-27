@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">  </head>
+  <body>
+    <body>
+      <header>
+        <img src="" alt="" class="logo" />
+
+        <div class="profile" style="position: relative;">
+          <h1>{{ user.student.surname }} {{ user.student.name.0 }}.</h1>
+          <div
+            class="pfp"
+            onclick="document.getElementById('menu').style.display = 'block'"
+          >
+            {{ user.student.surname.0 }}{{ user.student.name.0 }}
+          </div>
+          <div
+            id="menu"
+            style="
+              display: none;
+              position: absolute;
+              background: white;
+              border: #93abbc 1px solid;
+              top:85px;
+              right:0;
+            "
+            onmouseleave="this.style.display = 'none'"
+          >
+            <form method="post" action="{% url 'accounts:logout' %}">
+              {% csrf_token %}
+              <button type="submit">Выйти</button>
+            </form>
+            <a href="/admin/"><button>Админка</button></a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <table class="disciplines">
+          <thead>
+            <tr>
+              <th>Дисциплина</th>
+              <th>Преподаватель</th>
+              <th>Группа</th>
+              <th>
+                <a
+                  href="#"
+                  onclick="
+                    toggleSort();
+                    return false;
+                  "
+                  id="sort-icon"
+                >
+                  <span id="sort-icon">Баллы ⬆️</span>
+                </a>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="courses-body">
+            {% for course in courses %}
+            <tr>
+              <td>
+                <a href="{% url 'courses:detail' course.pk %}"
+                  >{{ course.discipline.title }}</a
+                >
+              </td>
+              <td>
+                {{ course.teacher.surname }} {{ course.teacher.name.0 }}. {% if course.teacher.lastname %} {{ course.teacher.lastname.0 }}.
+                {%endif%}
+              </td>
+              <td>{{ course.group.title }}</td>
+              <td>{{ course.total_score }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="4">нет курсов.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </main>
+
+      <script>
+        let currentSort = "score_asc";
+
+        async function sortCourses(sort) {
+          const response = await fetch(`/courses/api/courses/?sort=${sort}`);
+          const data = await response.json();
+
+          const tbody = document.getElementById("courses-body");
+          tbody.innerHTML = "";
+
+          if (data.length === 0) {
+            tbody.innerHTML =
+              '<tr><td colspan="4">Нет курсов.</td></tr>';
+            return;
+          }
+
+          data.forEach((course) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+            <td><a href="/courses/${course.id}/">${course.discipline}</a></td>
+            <td>${course.teacher}</td>
+            <td>${course.group}</td>
+            <td>${course.score}</td>
+        `;
+            tbody.appendChild(row);
+          });
+        }
+
+        function toggleSort() {
+          const icon = document.getElementById("sort-icon");
+          if (currentSort === "score_desc") {
+            currentSort = "score_asc";
+            icon.textContent = "Баллы ⬆️";
+          } else {
+            currentSort = "score_desc";
+            icon.textContent = "Баллы ⬇️";
+          }
+          sortCourses(currentSort);
+        }
+      </script>
+    </body>
+  </body>
+</html>
