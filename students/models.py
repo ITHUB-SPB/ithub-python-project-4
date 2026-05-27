@@ -29,3 +29,6 @@ class Student(models.Model):
         ordering = ['last_name', 'first_name']
         verbose_name = 'Студент'
         verbose_name_plural = 'Студенты'
+        indexes = [
+            models.Index(fields=['group'])
+        ]
