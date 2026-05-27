@@ -7,7 +7,7 @@ from unfold.admin import ModelAdmin
 from accounts import models, forms
 
 
-admin.site.unregister(User)
+# admin.site.unregister(User)
 admin.site.unregister(Group)
 
 
