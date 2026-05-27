@@ -10,6 +10,9 @@ class Group(models.Model):
     title = models.CharField(max_length=15, null=False, unique=True, verbose_name="Группа")
     year = models.CharField(choices=Year, null=False, verbose_name="Курс")
 
+    def __str__(self):
+        return self.title
+    
     class Meta:
         ordering = ['year', '-title']
         indexes = [
@@ -25,6 +28,10 @@ class Student(models.Model):
     account = models.OneToOneField(get_user_model(), on_delete=models.CASCADE, null=False, verbose_name="Аккаунт")
     group = models.ForeignKey(Group, on_delete=models.SET_NULL, null=True, verbose_name="Группа")
 
+    def __str__(self):
+        return f'{self.first_name} {self.last_name} {str(self.middle_name) [0]}'
+    
+    
     class Meta:
         ordering = ['last_name', 'first_name']
         verbose_name = 'Студент'

@@ -12,7 +12,7 @@ class Discipline(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Последнее обновление")
 
     def __str__(self):
-        return f'{self.title} - {self.duration} ак.ч.'
+        return self.title
 
     class Meta:
         verbose_name = 'Дисциплина'
