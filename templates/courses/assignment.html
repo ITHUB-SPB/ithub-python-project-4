@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{ assignment.title }}</title>
         {% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">  </head>
+<link rel="stylesheet" href="{% static 'css/style.css' %}?v=3">  </head>
 
 </head>
 <body>
@@ -40,10 +40,14 @@
           </div>
         </div>
 </header>
-<main>
-    <h1>{{ assignment.title }}</h1>
+<main class="kt-main">
+    <h1><a href="{% url 'courses:detail' assignment.discipline.courses.first.pk %}">⬅️</a> {{ assignment.title }}</h1>
     <p>{{ assignment.content }}</p>
-    <p>Максимальный балл: {{ assignment.weight }}</p>
+     {% if answer.score is not None %}
+            <p>Оценка: {{ answer.score }}/{{ assignment.weight }}</p>
+        {% else %}
+            <p>Максимальный балл: {{ assignment.weight }}</p>
+        {% endif %}
 
     {% if messages %}
         <ul>
@@ -53,23 +57,20 @@
         </ul>
     {% endif %}
 
-    {% if answer %}
-        <h3>Ваш ответ</h3>
-        <p>{{ answer.value }}</p>
-        {% if answer.score is not None %}
-            <p>Оценка: {{ answer.score }}/{{ assignment.weight }}</p>
-        {% else %}
-            <p>Ожидает проверки</p>
-        {% endif %}
-    {% endif %}
-
-    <form method="post">
+<form method="post">
         {% csrf_token %}
         <textarea name="value" rows="5" cols="40">{% if answer %}{{ answer.value }}{% endif %}</textarea>
         <br>
         <button type="submit">Отправить</button>
     </form>
-    <a href="{% url 'courses:detail' assignment.discipline.courses.first.pk %}">← Назад к курсу</a>
+
+    <div class="previous_answer">
+    {% if answer %}
+        <h3>прошлый ответ</h3>
+        <p>{{ answer.value }}</p>
+    {% endif %}
+  </div>
+    
 </main>
 </body>
 </html>

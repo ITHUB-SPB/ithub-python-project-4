@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>{{ course.discipline.title }}</title>
             {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">  </head>
 
@@ -43,10 +43,11 @@
 </header>
 
     <main>
-      <h1>{{ course.code }} — {{ course.discipline.title }}</h1>
-      <p>{{ course.about }}</p>
-
+      <h1><a href="{% url 'courses:list' %}">⬅️</a>{{ course.discipline.title }}</h1>
+      <hr>
       <h2>темы</h2>
+      <hr class="colorless">
+
 
       {% for item in items %} {% if item.is_assignment %}
       <div class="assignment">
@@ -57,6 +58,7 @@
           (макс {{ item.weight }} баллов)
         </h3>
       </div>
+      <hr class="colorless">
       {% else %}
       <div class="topic">
         <h3>
@@ -66,12 +68,12 @@
         </h3>
         <p>{{ item.content|truncatewords:10 }}</p>
       </div>
+      <hr class="colorless">
       {% endif %}
        {% empty %}
       <p>пусто</p>
       {% endfor %}
 
-      <a href="{% url 'courses:list' %}">← Назад к списку курсов</a>
     </main>
   </body>
 </html>
