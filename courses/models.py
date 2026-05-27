@@ -1,6 +1,7 @@
 from django.db import models
 from staff.models import Staff
-from students.models import Group
+from students.models import Group, Student
+
 
 class Discipline(models.Model):
     title = models.CharField(max_length=50, null=False, blank=False)
@@ -33,3 +34,20 @@ class Course(models.Model):
         teacher = self.teacher or ''
 
         return f'{code} «{title}» ({self.group}, {teacher})'
+
+
+class Topic(models.Model):
+    title = models.CharField(max_length=50, null=False, blank=False)
+    content = models.TextField(null=False, blank=False)
+    discipline = models.ForeignKey(Discipline, on_delete=models.SET_NULL, null=True, blank=True)
+
+
+class Assignment(models.Model):
+    topic = models.OneToOneField(Topic, on_delete=models.CASCADE)
+    weight = models.PositiveIntegerField(null=False)
+
+
+class Submission(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    assignment = models.ForeignKey(Assignment, on_delete=models.CASCADE)
+    score = models.PositiveIntegerField(null=True, blank=True, default=0)

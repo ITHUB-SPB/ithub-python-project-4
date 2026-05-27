@@ -26,6 +26,23 @@
     <p>{{ course.discipline.code }}</p>
     <p>{{ course.about }}</p>
     <p>{{ course.course_start}} - {{ course.course_end }}</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Топик</th>
+          <th>Кол-во часов</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for topic in course.discipline.topic_set.all %}
+        <tr>
+          <td>{{ topic.title }}</td>
+          <td>???</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </article>
 
 </main>
