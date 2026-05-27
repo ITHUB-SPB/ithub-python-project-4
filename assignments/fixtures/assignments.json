@@ -1,0 +1,18 @@
+[
+  {
+    "model": "assignments.assignment",
+    "pk": 1,
+    "fields": {
+      "topic": 3,
+      "weight": 6
+    }
+  },
+  {
+    "model": "assignments.assignment",
+    "pk": 2,
+    "fields": {
+      "topic": 6,
+      "weight": 10
+    }
+  }
+]

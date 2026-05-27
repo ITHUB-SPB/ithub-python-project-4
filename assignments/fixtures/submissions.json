@@ -5,7 +5,8 @@
     "fields": {
       "student": 1,
       "assignment": 1,
-      "score": 2
+      "answer": "Мой ответ на контрольную точку по модулям. Все модули работают корректно.",
+      "score": 6
     }
   },
   {
@@ -14,15 +15,7 @@
     "fields": {
       "student": 1,
       "assignment": 2,
-      "score": 6
-    }
-  },
-  {
-    "model": "assignments.submission",
-    "pk": 3,
-    "fields": {
-      "student": 1,
-      "assignment": 3,
+      "answer": "Мой ответ по Flask. Приложение работает на localhost:5000",
       "score": null
     }
   }

@@ -4,8 +4,8 @@
     "pk": 1,
     "fields": {
       "ordering_number": 1,
-      "title": "Введение в дисциплину. Node.js: история создания",
-      "content": "Для понимания того, в каком режиме будет происходить сдача работ...",
+      "title": "Введение в Node.js",
+      "content": "История создания, фреймворки, начало работы",
       "duration": 2,
       "discipline": 1
     }
@@ -15,8 +15,8 @@
     "pk": 2,
     "fields": {
       "ordering_number": 2,
-      "title": "КТ №1. Установка Node.js. REPL",
-      "content": "Задание по установке Node.js и работе с REPL",
+      "title": "Установка Node.js. REPL",
+      "content": "Установка и настройка, работа с REPL",
       "duration": 2,
       "discipline": 1
     }
@@ -26,7 +26,7 @@
     "pk": 3,
     "fields": {
       "ordering_number": 3,
-      "title": "КТ №2. Модули. Глобальные объекты",
+      "title": "Модули. Глобальные объекты",
       "content": "Работа с модулями в Node.js",
       "duration": 2,
       "discipline": 1
@@ -48,7 +48,7 @@
     "pk": 5,
     "fields": {
       "ordering_number": 2,
-      "title": "КТ №1. Основы Flask",
+      "title": "Основы Flask",
       "content": "Создание первого приложения на Flask",
       "duration": 2,
       "discipline": 2
@@ -59,7 +59,7 @@
     "pk": 6,
     "fields": {
       "ordering_number": 3,
-      "title": "КТ №2. Работа с базами данных",
+      "title": "Работа с базами данных",
       "content": "Подключение PostgreSQL к Flask",
       "duration": 2,
       "discipline": 2

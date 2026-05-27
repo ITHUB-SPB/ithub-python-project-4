@@ -1,5 +1,5 @@
 from django.db import models
-from students.models import Discipline  # изменено с Course на Discipline согласно заданию
+from students.models import Discipline
 
 
 class Topic(models.Model):
@@ -28,7 +28,7 @@ class Topic(models.Model):
         verbose_name = 'Тема'
         verbose_name_plural = 'Темы'
         ordering = ['discipline', 'ordering_number']
-        unique_together = [['ordering_number', 'discipline']]  # композитная уникальность
+        unique_together = [['ordering_number', 'discipline']]
 
     def __str__(self):
         return f"{self.discipline.title} - {self.ordering_number}. {self.title}"

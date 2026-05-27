@@ -46,6 +46,9 @@ class Submission(models.Model):
         verbose_name='контрольная точка',
         related_name='submissions'
     )
+    answer = models.TextField(
+        verbose_name='ответ'
+    )
     score = models.PositiveIntegerField(
         default=0,
         blank=True,
@@ -65,16 +68,18 @@ class Submission(models.Model):
         verbose_name = 'Ответ на контрольную точку'
         verbose_name_plural = 'Ответы на контрольные точки'
         ordering = ['assignment__topic__discipline', 'assignment__topic__ordering_number']
-        unique_together = [['student', 'assignment']]  # один студент — один ответ на КТ
+        unique_together = [['student', 'assignment']]
 
     def clean(self):
         if self.score and self.assignment and self.score > self.assignment.weight:
             raise ValidationError(f'Оценка не может превышать {self.assignment.weight} баллов')
 
     def save(self, *args, **kwargs):
+        if self.pk is None and self.score is None:
+            self.score = 0
         self.full_clean()
         super().save(*args, **kwargs)
 
     def __str__(self):
-        status = f"{self.score}/{self.assignment.weight}" if self.score is not None else "На проверке"
+        status = f"{self.score}/{self.assignment.weight}" if self.score else "На проверке"
         return f"{self.student.full_name} - {self.assignment.topic.title}: {status}"

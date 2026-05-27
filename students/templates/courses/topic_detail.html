@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ topic.title }}</title>
+    <style>
+        .content { margin: 20px 0; padding: 15px; background-color: #f9f9f9; }
+        .form-container { margin-top: 20px; padding: 15px; border: 1px solid #ddd; }
+        textarea { width: 100%; height: 150px; margin: 10px 0; }
+        .submission-info { background-color: #e8f4f8; padding: 15px; margin: 10px 0; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>{{ topic.title }}</h1>
+    <p><strong>Длительность:</strong> {{ topic.duration }} часа</p>
+
+    <div class="content">
+        <h3>Содержание</h3>
+        <p>{{ topic.content }}</p>
+    </div>
+
+    {% if has_assignment %}
+        <h2>Контрольная точка</h2>
+        <p><strong>Максимальный балл:</strong> {{ assignment.weight }}</p>
+
+        {% if already_submitted %}
+            <div class="submission-info">
+                <h3>Ваш результат</h3>
+                {% if submission.score %}
+                    <p class="score"><strong>Оценка:</strong> {{ submission.score }}/{{ assignment.weight }}</p>
+                {% else %}
+                    <p><strong>Статус:</strong> На проверке</p>
+                {% endif %}
+                <p><strong>Ваш ответ:</strong></p>
+                <p>{{ submission.answer }}</p>
+            </div>
+        {% else %}
+            <div class="form-container">
+                <h3>Отправить ответ</h3>
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="{% if message.tags == 'success' %}success{% else %}error{% endif %}">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+                <form method="post">
+                    {% csrf_token %}
+                    <label for="answer">Ответ:</label>
+                    <textarea name="answer" id="answer" required placeholder="Введите ваш ответ..."></textarea>
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
+        {% endif %}
+    {% else %}
+        <p><em>Этот топик не содержит контрольной точки</em></p>
+    {% endif %}
+
+    <p><a href="{{ request.META.HTTP_REFERER|default:'/' }}">← Назад</a></p>
+</body>
+</html>
