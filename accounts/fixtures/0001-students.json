@@ -1,0 +1,32 @@
+[
+  {
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+      "username": "student1",
+      "password": "pbkdf2_sha256$1200000$nXbHxoqePz6So0eMIOfsvJ$rBbpbQ2u2sFJW4dubPOHwEIoBOPMCsXbxwLwdPKU1bI=",
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+      "username": "student2",
+      "password": "pbkdf2_sha256$1200000$9iLddpvxxmaz6OalQwvsRh$49v27RDsbTUcPUSY0Kqb7Yzjqbq0e5vErW9+cbAtWUU=",
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+      "username": "student3",
+      "password": "pbkdf2_sha256$1200000$9iLddpvxxmaz6OalQwvsRh$49v27RDsbTUcPUSY0Kqb7Yzjqbq0e5vErW9+cbAtWUU=",
+      "is_staff": false,
+      "is_superuser": false
+    }
+  }
+]

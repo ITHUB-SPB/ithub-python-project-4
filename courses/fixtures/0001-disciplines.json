@@ -1,0 +1,35 @@
+[
+    {
+        "model": "courses.discipline",
+        "pk": 1,
+        "fields": {
+            "title": "Алгоритмы и структуры данных",
+            "duration": 64,
+            "curriculum": "",
+            "created_at": "2026-05-27T10:00:00Z",
+            "updated_at": "2026-05-27T10:00:00Z"
+        }
+    },
+    {
+        "model": "courses.discipline",
+        "pk": 2,
+        "fields": {
+            "title": "ООП на C#",
+            "duration": 48,
+            "curriculum": "",
+            "created_at": "2026-05-27T10:00:00Z",
+            "updated_at": "2026-05-27T10:00:00Z"
+        }
+    },
+    {
+        "model": "courses.discipline",
+        "pk": 3,
+        "fields": {
+            "title": "Язык программирования Python",
+            "duration": 128,
+            "curriculum": "",
+            "created_at": "2026-05-27T10:00:00Z",
+            "updated_at": "2026-05-27T10:00:00Z"
+        }
+    }
+]

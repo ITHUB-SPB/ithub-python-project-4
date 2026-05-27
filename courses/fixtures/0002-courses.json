@@ -1,0 +1,80 @@
+[
+  {
+    "model": "courses.course",
+    "pk": 1,
+    "fields": {
+      "code": "АИСД25.01",
+      "about": "Алгоритмы для группы ИТ-9.24.1",
+      "course_start": "2025-09-01",
+      "course_end": "2025-12-29",
+      "discipline": 1,
+      "group": 1,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 4,
+    "fields": {
+      "code": "АИСД26.014",
+      "about": "Алгоритмы для группы ИТ-9.25.2",
+      "course_start": "2026-09-01",
+      "course_end": "2026-12-29",
+      "discipline": 1,
+      "group": 2,
+      "teacher": 2
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 2,
+    "fields": {
+      "code": "ОНС25.02",
+      "about": "Шарпы для группы ИТ-9.24.1",
+      "course_start": "2025-09-01",
+      "course_end": "2025-12-29",
+      "discipline": 2,
+      "group": 1,
+      "teacher": 2
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 5,
+    "fields": {
+      "code": "ОНС26.014",
+      "about": "Шарпы для группы ИТ-9.25.2",
+      "course_start": "2026-09-01",
+      "course_end": "2026-12-29",
+      "discipline": 2,
+      "group": 2,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 3,
+    "fields": {
+      "code": "ЯПП25.03",
+      "about": "Питон для группы ИТ-9.24.1",
+      "course_start": "2026-01-12",
+      "course_end": "2026-06-30",
+      "discipline": 3,
+      "group": 1,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 6,
+    "fields": {
+      "code": "ЯПП26.032",
+      "about": "Питон для группы ИТ-9.25.2",
+      "course_start": "2027-09-01",
+      "course_end": "2027-12-29",
+      "discipline": 3,
+      "group": 2,
+      "teacher": 1
+    }
+  }
+]

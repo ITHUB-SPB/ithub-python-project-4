@@ -1,0 +1,35 @@
+[
+  {
+    "model": "students.student",
+    "pk": 1,
+    "fields": {
+      "first_name": "Иван",
+      "last_name": "Петров",
+      "middle_name": "Сергеевич",
+      "account": 1,
+      "group": 2
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": 2,
+    "fields": {
+      "first_name": "Мария",
+      "last_name": "Иванова",
+      "middle_name": "Петровна",
+      "account": 2,
+      "group": 1
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": 3,
+    "fields": {
+      "first_name": "Петр",
+      "last_name": "Сергеев",
+      "middle_name": "Иванович",
+      "account": 3,
+      "group": 3
+    }
+  }
+]
