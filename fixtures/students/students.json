@@ -1,0 +1,93 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "username": "student1",
+      "password": "pbkdf2_sha256$1000000$student1salt$8Enw0R0nXIdMultScJshVZazlwU1u8XTUTHpp5BY738=",
+      "first_name": "Иван",
+      "last_name": "Иванов",
+      "email": "student1@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "username": "student2",
+      "password": "pbkdf2_sha256$1000000$student2salt$fZVdYEhoIq2V1HDhlA0X1Tt3W6lutaRnO4+9j9dph8g=",
+      "first_name": "Пётр",
+      "last_name": "Петров",
+      "email": "student2@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "username": "student3",
+      "password": "pbkdf2_sha256$1000000$student3salt$vLh/Gn0q4kO02+ittgaiVgTqo9pjY6imvp0jQBlZabw=",
+      "first_name": "Анна",
+      "last_name": "Сидорова",
+      "email": "student3@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "students.group",
+    "pk": 1,
+    "fields": {
+      "title": "ИС-21",
+      "course": "2"
+    }
+  },
+  {
+    "model": "students.group",
+    "pk": 2,
+    "fields": {
+      "title": "ВЕБ-21",
+      "course": "2"
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": 1,
+    "fields": {
+      "first_name": "Иван",
+      "last_name": "Иванов",
+      "middle_name": "Иванович",
+      "account": 1,
+      "group": 1
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": 2,
+    "fields": {
+      "first_name": "Пётр",
+      "last_name": "Петров",
+      "middle_name": "Петрович",
+      "account": 2,
+      "group": 1
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": 3,
+    "fields": {
+      "first_name": "Анна",
+      "last_name": "Сидорова",
+      "middle_name": "",
+      "account": 3,
+      "group": 2
+    }
+  }
+]

@@ -1,31 +1,36 @@
 {% load static %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>noLXP</title>
+    <title>{% block title %}noLXP{% endblock %}</title>
+
     <link rel="stylesheet" href="{% static 'pico.css' %}">
     <link rel="stylesheet" href="{% static 'global.css' %}">
 </head>
 <body>
-    {% if request.user.is_authenticated %}
+<header>
     <nav>
-      <a href="{% url 'courses' %}">Главная</a>
+        <ul>
+            <li><strong>noLXP</strong></li>
+        </ul>
 
-      <span>{{ request.user.student }}</span>
-      <a href="{% url 'logout' %}">Выйти</a>
+        <ul>
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'courses' %}">Курсы</a></li>
+                <li>{{ request.user.username }}</li>
+                <li><a href="{% url 'logout' %}">Выйти</a></li>
+            {% endif %}
+        </ul>
     </nav>
-    {% endif %}
+</header>
 
-    <h2>
-    {% block title %}
-    {% endblock %}
-    </h2>
+<main>
+    <h1>{% block title_text %}{% endblock %}</h1>
 
-    <main>
     {% block content %}
     {% endblock %}
-    </main>
+</main>
 </body>
 </html>

@@ -1,0 +1,113 @@
+[
+  {
+    "model": "courses.discipline",
+    "pk": 1,
+    "fields": {
+      "title": "Python-разработка",
+      "duration": 72,
+      "curriculum": "",
+      "created_at": "2026-05-27T12:00:00Z",
+      "updated_at": "2026-05-27T12:00:00Z"
+    }
+  },
+  {
+    "model": "courses.discipline",
+    "pk": 2,
+    "fields": {
+      "title": "Базы данных",
+      "duration": 64,
+      "curriculum": "",
+      "created_at": "2026-05-27T12:00:00Z",
+      "updated_at": "2026-05-27T12:00:00Z"
+    }
+  },
+  {
+    "model": "courses.discipline",
+    "pk": 3,
+    "fields": {
+      "title": "Веб-разработка",
+      "duration": 80,
+      "curriculum": "",
+      "created_at": "2026-05-27T12:00:00Z",
+      "updated_at": "2026-05-27T12:00:00Z"
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 1,
+    "fields": {
+      "code": "PY-101",
+      "about": "Основы Python и Django.",
+      "course_start": "2026-02-01",
+      "course_end": "2026-05-30",
+      "discipline": 1,
+      "group": 1,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 2,
+    "fields": {
+      "code": "PY-102",
+      "about": "Практика по созданию веб-приложений на Django.",
+      "course_start": "2026-06-01",
+      "course_end": "2026-08-30",
+      "discipline": 1,
+      "group": 2,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 3,
+    "fields": {
+      "code": "DB-101",
+      "about": "Основы SQL и проектирование баз данных.",
+      "course_start": "2026-02-10",
+      "course_end": "2026-05-20",
+      "discipline": 2,
+      "group": 1,
+      "teacher": 2
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 4,
+    "fields": {
+      "code": "DB-102",
+      "about": "Практическая работа с PostgreSQL.",
+      "course_start": "2026-06-05",
+      "course_end": "2026-08-25",
+      "discipline": 2,
+      "group": 2,
+      "teacher": 2
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 5,
+    "fields": {
+      "code": "WEB-101",
+      "about": "HTML, CSS и базовая верстка.",
+      "course_start": "2026-02-15",
+      "course_end": "2026-05-25",
+      "discipline": 3,
+      "group": 1,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 6,
+    "fields": {
+      "code": "WEB-102",
+      "about": "Django templates и серверная отрисовка страниц.",
+      "course_start": "2026-06-10",
+      "course_end": "2026-09-01",
+      "discipline": 3,
+      "group": 2,
+      "teacher": 2
+    }
+  }
+]

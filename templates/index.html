@@ -1,14 +1,53 @@
 {% extends 'layout.html' %}
 
-{% block title %} Дисциплины {% endblock %}
-
-{% block content %}
-    {% for d in disciplines %}
-    <article>
-        <h3>
-            <a href="{% url 'course' d.id %}">{{ d.code }} {{ d.title }}</a>
-        </h3>
-    </article>
-    {% endfor %}
+{% block title %}
+Курсы
 {% endblock %}
 
+{% block title_text %}
+Мои курсы
+{% endblock %}
+
+{% block content %}
+
+{% if student %}
+    <p>Студент: {{ student }}</p>
+    <p>Группа: {{ student.group }}</p>
+{% endif %}
+
+{% for course in courses %}
+    <article>
+        <h3>
+            <a href="{% url 'course_detail' course.id %}">
+                {{ course.code }}
+                {% if course.discipline %}
+                    — {{ course.discipline.title }}
+                {% endif %}
+            </a>
+        </h3>
+
+        <p>
+            {{ course.about|default:'Описание курса пока не добавлено' }}
+        </p>
+
+        <p>
+            <strong>Группа:</strong> {{ course.group }}
+        </p>
+
+        <p>
+            <strong>Преподаватель:</strong>
+            {{ course.teacher|default:'Не назначен' }}
+        </p>
+
+        <p>
+            <strong>Период:</strong>
+            {{ course.course_start|default:'не указано' }}
+            —
+            {{ course.course_end|default:'не указано' }}
+        </p>
+    </article>
+{% empty %}
+    <p>Для вашей группы пока нет курсов.</p>
+{% endfor %}
+
+{% endblock %}

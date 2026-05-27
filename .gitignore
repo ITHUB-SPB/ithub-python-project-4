@@ -1,5 +1,7 @@
-.idea
-__pycache__
+.venv/
+venv/
+__pycache__/
+*.pyc
+db.sqlite3
 .env
-.venv
-env
+media/git add .

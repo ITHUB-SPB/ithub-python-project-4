@@ -1,20 +1,17 @@
 from django.contrib import admin
-from courses import models
+
+from courses.models import Discipline, Course
 
 
+@admin.register(Discipline)
 class DisciplineAdmin(admin.ModelAdmin):
-    list_display = ['title', 'duration']
-    list_filter = ['duration']
+    list_display = ['title', 'duration', 'created_at', 'updated_at']
     search_fields = ['title']
+    list_filter = ['duration']
 
 
-class CoursesAdmin(admin.ModelAdmin):
-    list_display = ['code', 'discipline', 'group']
-    list_filter = ['discipline', 'group']
+@admin.register(Course)
+class CourseAdmin(admin.ModelAdmin):
+    list_display = ['code', 'discipline', 'group', 'teacher', 'course_start', 'course_end']
+    list_filter = ['discipline', 'group', 'teacher']
     search_fields = ['code', 'discipline__title']
-
-
-admin.site.register(models.Course, CoursesAdmin)
-admin.site.register(models.Disclipline, DisciplineAdmin)
-
-
