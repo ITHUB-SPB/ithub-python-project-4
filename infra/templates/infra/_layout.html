@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>noLXP</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'global.css' %}">
+</head>
+<body class="bg-base-200 min-h-screen">
+    {% if request.user.is_authenticated %}
+    <header class="navbar bg-base-100 border-b border-base-300 shadow-sm">
+        <div class="max-w-6xl mx-auto w-full px-4">
+            <div class="flex justify-between items-center w-full">
+                <nav class="flex items-center gap-10">
+                    <a href="{% url 'courses' %}" class="text-xl font-bold text-primary">noLXP</a>
+                    <a href="{% url 'courses' %}" class="btn btn-ghost">Дисциплины</a>
+                </nav>
+                <nav class="flex items-center gap-2">
+                    <div class="badge badge-ghost">{{ request.user.username }}</div>
+                    <a href="{% url 'logout' %}" class="btn btn-primary btn-sm">Выйти</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    {% endif %}
+
+    {% if messages %}
+    <section class="max-w-4xl mx-auto px-4 pt-4 space-y-3">
+        {% for message in messages %}
+        <div class="alert alert-warning">
+            <span>{{ message }}</span>
+        </div>
+        {% endfor %}
+    </section>
+    {% endif %}
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

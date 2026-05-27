@@ -1,0 +1,80 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        Inter,
+        system-ui,
+        sans-serif;
+}
+
+
+/* Smooth buttons */
+
+.btn {
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+
+/* Better cards */
+
+.card,
+.alert,
+.table,
+.menu,
+.navbar {
+    border-radius: 1rem;
+}
+
+
+/* Inputs */
+
+.input,
+.select,
+.textarea {
+    width: 100%;
+}
+
+
+/* Links */
+
+a {
+    transition: opacity 0.15s ease;
+}
+
+a:hover {
+    opacity: 0.9;
+}
+
+
+/* Tables */
+
+.table th {
+    font-weight: 600;
+}
+
+
+/* Forms */
+
+.form-control {
+    margin-bottom: 1rem;
+}
+
+
+/* Mobile */
+
+@media (max-width: 640px) {
+
+    .navbar {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+}

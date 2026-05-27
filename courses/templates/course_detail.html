@@ -1,0 +1,28 @@
+{% extends "infra/_layout.html" %}
+
+{% block content %}
+
+<div class="card bg-base-100 shadow">
+    <div class="card-body space-y-2">
+        <h2 class="text-xl font-bold">{{ course.discipline }}</h2>
+        <p class="text-sm opacity-70">{{ course.code }}</p>
+        <p>
+            <span class="font-semibold">Группа:</span>
+            {{ course.group }}
+        </p>
+        <p>
+            <span class="font-semibold">Преподаватель:</span>
+            {{ course.teacher }}
+        </p>
+        <p>
+            <span class="font-semibold">Описание:</span><br>
+            {{ course.about|default:"Нет описания" }}
+        </p>
+        <div class="text-sm opacity-60">{{ course.course_start }} → {{ course.course_end }}</div>
+
+        <div class="card-actions justify-end mt-4">
+            <a href="{% url 'courses' %}" class="btn btn-ghost">← Назад</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
