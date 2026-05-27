@@ -1,0 +1,29 @@
+[
+  {
+    "model": "assignments.submission",
+    "pk": 1,
+    "fields": {
+      "student": 1,
+      "assignment": 1,
+      "score": 2
+    }
+  },
+  {
+    "model": "assignments.submission",
+    "pk": 2,
+    "fields": {
+      "student": 1,
+      "assignment": 2,
+      "score": 6
+    }
+  },
+  {
+    "model": "assignments.submission",
+    "pk": 3,
+    "fields": {
+      "student": 1,
+      "assignment": 3,
+      "score": null
+    }
+  }
+]

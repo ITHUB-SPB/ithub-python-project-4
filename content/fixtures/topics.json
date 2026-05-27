@@ -1,0 +1,68 @@
+[
+  {
+    "model": "content.topic",
+    "pk": 1,
+    "fields": {
+      "ordering_number": 1,
+      "title": "Введение в дисциплину. Node.js: история создания",
+      "content": "Для понимания того, в каком режиме будет происходить сдача работ...",
+      "duration": 2,
+      "discipline": 1
+    }
+  },
+  {
+    "model": "content.topic",
+    "pk": 2,
+    "fields": {
+      "ordering_number": 2,
+      "title": "КТ №1. Установка Node.js. REPL",
+      "content": "Задание по установке Node.js и работе с REPL",
+      "duration": 2,
+      "discipline": 1
+    }
+  },
+  {
+    "model": "content.topic",
+    "pk": 3,
+    "fields": {
+      "ordering_number": 3,
+      "title": "КТ №2. Модули. Глобальные объекты",
+      "content": "Работа с модулями в Node.js",
+      "duration": 2,
+      "discipline": 1
+    }
+  },
+  {
+    "model": "content.topic",
+    "pk": 4,
+    "fields": {
+      "ordering_number": 1,
+      "title": "Введение в Python on web",
+      "content": "Основы веб-разработки на Python",
+      "duration": 4,
+      "discipline": 2
+    }
+  },
+  {
+    "model": "content.topic",
+    "pk": 5,
+    "fields": {
+      "ordering_number": 2,
+      "title": "КТ №1. Основы Flask",
+      "content": "Создание первого приложения на Flask",
+      "duration": 2,
+      "discipline": 2
+    }
+  },
+  {
+    "model": "content.topic",
+    "pk": 6,
+    "fields": {
+      "ordering_number": 3,
+      "title": "КТ №2. Работа с базами данных",
+      "content": "Подключение PostgreSQL к Flask",
+      "duration": 2,
+      "discipline": 2
+    }
+  }
+]

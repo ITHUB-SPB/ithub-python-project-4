@@ -1,41 +1,34 @@
 from django.db import models
-from students.models import Course
+from students.models import Discipline  # изменено с Course на Discipline согласно заданию
 
 
 class Topic(models.Model):
-    TYPE_CHOICES = [
-        ('material', 'Учебный материал'),
-        ('checkpoint', 'Контрольная точка'),
-    ]
-
+    ordering_number = models.PositiveIntegerField(
+        verbose_name='порядковый номер'
+    )
     title = models.CharField(
-        max_length=200,
-        verbose_name='название'
+        max_length=50,
+        verbose_name='название темы'
     )
     content = models.TextField(
         verbose_name='содержание'
     )
-    type = models.CharField(
-        max_length=20,
-        choices=TYPE_CHOICES,
-        verbose_name='тип'
+    duration = models.PositiveIntegerField(
+        verbose_name='количество часов'
     )
-    course = models.ForeignKey(
-        Course,
+    discipline = models.ForeignKey(
+        Discipline,
         on_delete=models.SET_NULL,
         null=True,
-        verbose_name='курс',
+        verbose_name='дисциплина',
         related_name='topics'
-    )
-    order = models.PositiveIntegerField(
-        default=0,
-        verbose_name='порядковый номер'
     )
 
     class Meta:
         verbose_name = 'Тема'
         verbose_name_plural = 'Темы'
-        ordering = ['course', 'order', 'id']
+        ordering = ['discipline', 'ordering_number']
+        unique_together = [['ordering_number', 'discipline']]  # композитная уникальность
 
     def __str__(self):
-        return f"{self.title} ({self.get_type_display()})"
+        return f"{self.discipline.title} - {self.ordering_number}. {self.title}"
