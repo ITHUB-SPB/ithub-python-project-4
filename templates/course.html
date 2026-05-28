@@ -10,13 +10,7 @@
 
     {% for topic in course.discipline.topic_set.all %}
         <section>
-            {{ topic.title }}
-        </section>
-    {% endfor %}
-
-    {% for assignment in course.discipline.assignment_set.all %}
-        <section>
-            {{ assignment.title }}
+            <a href="{% url 'topic' course.id topic.id %}">{{ topic.title }}</a>
         </section>
     {% endfor %}
 

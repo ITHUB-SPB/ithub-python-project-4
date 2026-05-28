@@ -24,3 +24,14 @@ def detail(request, course_id):
         'course.html',
         { 'course': course }
     )
+
+
+@login_required(login_url=reverse_lazy('login'))
+def topic(request, course_id, topic_id):
+    topic = models.Topic.objects.get(pk=topic_id)
+
+    return render(
+        request,
+        'topic.html',
+        { 'topic': topic }
+    )

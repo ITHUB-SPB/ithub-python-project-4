@@ -28,4 +28,7 @@ class Topic(models.Model):
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
 
+    objects = models.Manager()
 
+    class Meta:
+        ordering = ['discipline__title', 'title']

@@ -1,0 +1,23 @@
+{% extends '_layout.html' %}
+
+{% block title %}
+{{ topic.title }}
+{% endblock %}
+
+{% block content %}
+<article>
+    <p>Длительность: {{ topic.duration }} ак.ч.</p>
+
+    <p>{{ topic.content }}</p>
+</article>
+
+{% if topic.assignment %}
+<form action="{% url 'submission' topic.assignment.id %}" method="post">
+    {% csrf_token %}
+    <h3>Добавить ответ</h3>
+    <textarea name="answer" rows="6" required placeholder="Ваш ответ..."></textarea>
+    <button type="submit">Отправить!</button>
+</form>
+{% endif %}
+
+{% endblock %}
