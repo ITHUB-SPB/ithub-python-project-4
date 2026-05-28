@@ -3,7 +3,7 @@
 {% block title %} Дисциплины {% endblock %}
 
 {% block content %}
-    {% for d in disciplines %}
+    {% for d in courses %}
     <article>
         <h3>
             <a href="{% url 'course' d.id %}">{{ d.code }} {{ d.title }}</a>

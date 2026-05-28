@@ -14,7 +14,25 @@ class CoursesAdmin(admin.ModelAdmin):
     search_fields = ['code', 'discipline__title']
 
 
+class TopicAdmin(admin.ModelAdmin):
+    list_display = ['title', 'discipline']
+    list_filter = ['discipline']
+
+
+class AssignmentAdmin(admin.ModelAdmin):
+    list_display = ['topic__discipline__title', 'topic__title', 'weight']
+    list_filter = ['topic__discipline']
+
+
+class SubmissionAdmin(admin.ModelAdmin):
+    list_display = ['student', 'assignment__topic__discipline', 'assignment__topic__title', 'score']
+    list_filter = ['student', 'assignment__topic__discipline', 'score']
+
+
 admin.site.register(models.Course, CoursesAdmin)
 admin.site.register(models.Disclipline, DisciplineAdmin)
+admin.site.register(models.Topic, TopicAdmin)
+admin.site.register(models.Assignment, AssignmentAdmin)
+admin.site.register(models.Submission, SubmissionAdmin)
 
 

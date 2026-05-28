@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{ topic.title }}
+{% endblock %}
+
+{% block content %}
+<p>Кол-во часов изучения: ??? ак.ч.</p>
+
+<p>{{ topic.content }}</p>
+
+{% if topic.assignment_set.first %}
+<hr>
+<form action="{% url 'submission' topic.assignment_set.first.id %}" method="post">
+    {% csrf_token %}
+    <textarea name="answer" rows="8" placeholder="Ваш ответ..." required></textarea>
+    <button type="submit">Отправить!</button>
+</form>
+{% endif %}
+
+{% endblock %}
