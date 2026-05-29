@@ -13,6 +13,12 @@ class CourseAdmin(admin.ModelAdmin):
     list_filter = ['discipline', 'discipline__duration', 'group', 'group__course']
     search_fields = ['code', 'discipline__title']
 
+    def get_queryset(self, request):
+        if request.user.groups.filter(name="teachers").exists():
+            teacher = request.user.teacher
+            return super().get_queryset(request).filter(teacher=teacher)
+        return super().get_queryset(request)
+
 
 class TopicAdmin(admin.ModelAdmin):
     list_display = ['title', 'discipline', 'updated_at']

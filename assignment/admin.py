@@ -8,6 +8,7 @@ class AssignmentAdmin(admin.ModelAdmin):
 class SubmissionAdmin(admin.ModelAdmin):
     list_display = ['student', 'assignment__topic__title', 'score']
     list_filter = ['assignment__topic__discipline']
+    readonly_fields = ['answer', 'assignment', 'student']
 
 
 admin.site.register(models.Assignment, AssignmentAdmin)

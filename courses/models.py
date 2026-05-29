@@ -1,5 +1,6 @@
 from django.db import models
 from students.models import Group
+from staff.models import Teacher
 
 class Discipline(models.Model):
     title = models.CharField(max_length=50, null=False)
@@ -16,6 +17,7 @@ class Discipline(models.Model):
 class Course(models.Model):
     code = models.CharField(max_length=15, unique=False, null=False)
     discipline = models.ForeignKey(Discipline, on_delete=models.SET_NULL, null=True)
+    teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL, null=True, blank=True)
     group = models.ForeignKey(Group, on_delete=models.CASCADE, null=False, related_name='students_group')
 
 
