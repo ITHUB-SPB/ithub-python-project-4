@@ -16,6 +16,11 @@ class Assignment(models.Model):
     )
     weight = models.PositiveIntegerField("макс баллов")
 
+    class Meta:
+        verbose_name = "контрольная точка"
+        verbose_name_plural = "контрольные точки"
+        ordering = ["order"]
+
     def __str__(self):
         return self.title
 

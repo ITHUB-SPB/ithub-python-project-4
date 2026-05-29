@@ -10,6 +10,8 @@ class Discipline(models.Model):
     updated_at = models.DateTimeField("обновлено", auto_now=True)
 
     class Meta:
+        verbose_name = "дисциплина"
+        verbose_name_plural = "дисциплины"
         ordering = ["-updated_at", "-created_at"]
 
 
@@ -47,6 +49,8 @@ class Course(models.Model):
     )
 
     class Meta:
+        verbose_name = "курс"
+        verbose_name_plural = "курсы"
         ordering = ["discipline__title"]
 
     def __str__(self):
@@ -65,5 +69,24 @@ class Topic(models.Model):
         verbose_name="дисциплина"
     )
 
+    class Meta:
+        verbose_name = "топик"
+        verbose_name_plural = "топики"
+        ordering = ["order"]
+
+
     def __str__(self):
         return self.title
+    
+# class DisciplineTheme(models.Model):
+#     title = models.CharField("тема", max_length=50)
+#     order = models.PositiveIntegerField("порядок", default=0)
+#     discipline = models.ForeignKey(
+#         Discipline, 
+#         on_delete=models.SET_NULL,
+#         null=True,
+#         blank=True,
+#         related_name="theme",
+#         verbose_name="дисциплина"
+#     )
+#     pass

@@ -1,5 +1,5 @@
 from django.db import models
-from core import settings
+from django.conf import settings
 
 
 class Teacher(models.Model):
@@ -12,6 +12,11 @@ class Teacher(models.Model):
         related_name="teacher",
         verbose_name="аккаунт"
     )
+
+    class Meta:
+        verbose_name = "учитель"
+        verbose_name_plural = "учителя"
+        ordering = ["surname","name"]
 
     def __str__(self):
         return f"{self.surname} {self.name} {self.lastname}"
@@ -26,6 +31,11 @@ class Manager(models.Model):
         related_name="manager",
         verbose_name="аккаунт"
     )
+
+    class Meta:
+        verbose_name = "менеджер"
+        verbose_name_plural = "менеджеры"
+        ordering = ["surname","name"]
 
     def __str__(self):
         return f"{self.surname} {self.name} {self.lastname}"

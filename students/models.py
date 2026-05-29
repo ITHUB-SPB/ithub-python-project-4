@@ -11,6 +11,12 @@ class Group(models.Model):
     title = models.CharField("номер", max_length=15)
     course = models.CharField("курс", max_length=10, choices=CourseChoice.choices)
 
+    class Meta:
+        verbose_name = "Группа"
+        verbose_name_plural = "Группы"
+        ordering = ["course"]
+
+
     def __str__(self):
         return f"{self.title} ({self.course})"
 
@@ -35,6 +41,10 @@ class Student(models.Model):
         )
         
     
+    class Meta:
+        verbose_name = "Студент"
+        verbose_name_plural = "Студенты"
+        ordering = ["surname", "name"]
 
     def __str__(self):
         return f"{self.surname} {self.name} {self.lastname}"

@@ -59,7 +59,7 @@
 
 <form method="post">
         {% csrf_token %}
-        <textarea name="value" rows="5" cols="40">{% if answer %}{{ answer.value }}{% endif %}</textarea>
+        <textarea name="value" rows="5" cols="40"></textarea>
         <br>
         <button type="submit">Отправить</button>
     </form>
