@@ -15,6 +15,9 @@ class Group(models.Model):
         verbose_name = "Группа"
         verbose_name_plural = "Группы"
         ordering = ["course"]
+        indexes = [
+            models.Index(fields=["course"])
+        ]
 
 
     def __str__(self):
@@ -45,6 +48,9 @@ class Student(models.Model):
         verbose_name = "Студент"
         verbose_name_plural = "Студенты"
         ordering = ["surname", "name"]
+        indexes = [
+            models.Index(fields=["group"])
+        ]
 
     def __str__(self):
         return f"{self.surname} {self.name} {self.lastname}"

@@ -41,6 +41,8 @@ class Answer(models.Model):
     score = models.PositiveIntegerField("оценка", null=True, blank=True)
 
     class Meta:
+        verbose_name = "ответ"
+        verbose_name_plural = "ответы"
         unique_together = ("student", "assignment")
 
     def __str__(self):

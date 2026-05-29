@@ -15,6 +15,7 @@ class Discipline(models.Model):
         ordering = ["-updated_at", "-created_at"]
 
 
+
     def __str__(self):
         return self.title
     
@@ -52,6 +53,11 @@ class Course(models.Model):
         verbose_name = "курс"
         verbose_name_plural = "курсы"
         ordering = ["discipline__title"]
+        indexes = [
+            models.Index(fields=["discipline"]),
+            models.Index(fields=["group"]),
+            models.Index(fields=["teacher"])
+        ]
 
     def __str__(self):
         return f"{self.code} - {self.discipline}" if self.discipline else self.code
