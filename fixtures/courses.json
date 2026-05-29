@@ -1,0 +1,143 @@
+[
+{
+  "model": "courses.discipline",
+  "pk": 1,
+  "fields": {
+    "title": "питон",
+    "duration": 48,
+    "curriculum": "",
+    "created_at": "2026-05-24T09:15:39.625Z",
+    "updated_at": "2026-05-24T09:15:39.625Z"
+  }
+},
+{
+  "model": "courses.discipline",
+  "pk": 2,
+  "fields": {
+    "title": "ноде",
+    "duration": 48,
+    "curriculum": "",
+    "created_at": "2026-05-27T03:27:04.948Z",
+    "updated_at": "2026-05-27T03:27:04.948Z"
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 1,
+  "fields": {
+    "code": "2",
+    "about": "ит 2 курс",
+    "course_start": "2025-12-12",
+    "course_end": "2027-12-12",
+    "discipline": 1,
+    "group": 1,
+    "teacher": 1
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 2,
+  "fields": {
+    "code": "1",
+    "about": "ноде",
+    "course_start": "2025-12-12",
+    "course_end": "2027-12-12",
+    "discipline": 2,
+    "group": 1,
+    "teacher": 2
+  }
+},
+{
+  "model": "courses.topic",
+  "pk": 1,
+  "fields": {
+    "title": "джанго",
+    "content": "Зачем это учить?\r\nНа этом занятии мы создадим проект Django, на главной странице которого написано «Hello, World» — традиционный способ запуска новой веб-инфраструктуры.\r\nКак это учить?\r\nИзучить лекционный материал для усвоения полученных знаний и параллельно разрабатывать WEB- приложение на основаниях готовых шаблонов кодов и упражнений с целью приобретения умений по тематике.",
+    "order": 1,
+    "discipline": 1
+  }
+},
+{
+  "model": "courses.topic",
+  "pk": 2,
+  "fields": {
+    "title": "фастапи",
+    "content": "фастапи тема",
+    "order": 2,
+    "discipline": 1
+  }
+},
+{
+  "model": "courses.topic",
+  "pk": 3,
+  "fields": {
+    "title": "ноде жс",
+    "content": "начало ноде",
+    "order": 0,
+    "discipline": 2
+  }
+},
+{
+  "model": "assignments.assignment",
+  "pk": 1,
+  "fields": {
+    "title": "джанго кт",
+    "content": "кт по джанго",
+    "order": 1,
+    "discipline": 1,
+    "weight": 15
+  }
+},
+{
+  "model": "assignments.assignment",
+  "pk": 2,
+  "fields": {
+    "title": "джанго кт 2",
+    "content": "надо так",
+    "order": 1,
+    "discipline": 1,
+    "weight": 23
+  }
+},
+{
+  "model": "assignments.assignment",
+  "pk": 3,
+  "fields": {
+    "title": "кт ноде",
+    "content": "первая кт ноде",
+    "order": 0,
+    "discipline": 2,
+    "weight": 25
+  }
+},
+{
+  "model": "assignments.answer",
+  "pk": 1,
+  "fields": {
+    "student": 1,
+    "assignment": 1,
+    "value": "123",
+    "score": 12
+  }
+},
+{
+  "model": "assignments.answer",
+  "pk": 2,
+  "fields": {
+    "student": 1,
+    "assignment": 2,
+    "value": "ответ",
+    "score": null
+  }
+},
+{
+  "model": "assignments.answer",
+  "pk": 3,
+  "fields": {
+    "student": 1,
+    "assignment": 3,
+    "value": "ответ2",
+    "score": null
+  }
+}
+]

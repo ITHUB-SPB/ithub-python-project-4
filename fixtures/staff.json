@@ -1,0 +1,32 @@
+[
+{
+  "model": "staff.teacher",
+  "pk": 1,
+  "fields": {
+    "name": "учитель1",
+    "surname": "опятьпервый",
+    "lastname": null,
+    "account": 3
+  }
+},
+{
+  "model": "staff.teacher",
+  "pk": 2,
+  "fields": {
+    "name": "второйУчитель",
+    "surname": "второй",
+    "lastname": "второй",
+    "account": 7
+  }
+},
+{
+  "model": "staff.manager",
+  "pk": 1,
+  "fields": {
+    "name": "менеджер",
+    "surname": "менеджеров",
+    "lastname": null,
+    "account": 5
+  }
+}
+]
