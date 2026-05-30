@@ -17,9 +17,9 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
     add_form = forms.UserCreationForm
     change_password_form = forms.AdminPasswordChangeForm
 
-    list_display = ['username', 'first_name', 'last_name', 'middle_name', 'is_staff']
+    list_display = ['username', 'is_staff']
     list_filter = ['is_staff']
-    search_fields = ['username', 'first_name', 'last_name']
+    search_fields = ['username']
 
 
 @admin.register(Group)

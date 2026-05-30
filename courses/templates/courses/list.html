@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Курсы</title>
+</head>
+<body>
+
+    <h1>Список курсов</h1>
+
+    <p>Количество курсов: {{ courses|length }}</p>
+
+    {% for course in courses %}
+        <div style="margin-bottom:20px;">
+            <h3>{{ course.code }}</h3>
+
+            <p>{{ course.about }}</p>
+
+            <p>
+                <a href="/courses/{{ course.id }}">
+                    Открыть курс
+                </a>
+            </p>
+        </div>
+    {% empty %}
+        <p>Курсов нет.</p>
+    {% endfor %}
+
+</body>
+</html>
