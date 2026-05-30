@@ -7,4 +7,23 @@
 
     <h2>{{ course.code }} {{ course.discipline.title }}</h2>
     <p>Кол-во часов изучения: {{ course.discipline.duration }} ак.ч</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Тема</th>
+                <th>Длительность</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for topic in course.discipline.topic_set.all %}
+            <tr>
+                <td>
+                    <a href="{% url 'topic' course.id topic.id %}">{{ topic.title }}</a>
+                </td>
+                <td>???</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
