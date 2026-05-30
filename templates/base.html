@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LXP Платформа{% endblock %}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; background: #f4f4f4; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { background: #333; color: #fff; padding: 1rem; }
+        .header a { color: #fff; text-decoration: none; margin-right: 20px; }
+        .course-card { background: #fff; border-radius: 5px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .topic-item { padding: 10px; border-bottom: 1px solid #ddd; }
+        .topic-link { color: #333; text-decoration: none; font-weight: bold; }
+        .score { color: #666; margin-left: 10px; }
+        .alert { padding: 10px; margin: 10px 0; border-radius: 3px; }
+        .alert-error { background: #f2dede; color: #a94442; }
+        .alert-success { background: #dff0d8; color: #3c763d; }
+        button, .btn { background: #5cb85c; color: #fff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 3px; }
+        textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 3px; }
+        .grade { font-weight: bold; padding: 3px 8px; border-radius: 3px; }
+        .grade-5 { background: #5cb85c; color: #fff; }
+        .grade-4 { background: #5bc0de; color: #fff; }
+        .grade-3 { background: #f0ad4e; color: #fff; }
+        .grade-2 { background: #d9534f; color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <a href="{% url 'courses:list' %}">Мои курсы</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">Выйти ({{ user.username }})</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+[
+  {
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+      "username": "ivanov.ivan",
+      "password": "pbkdf2_sha256$...",
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": 1,
+    "fields": {
+      "last_name": "Иванов",
+      "first_name": "Иван",
+      "patronymic": "Иванович",
+      "account": 1,
+      "group": 1
+    }
+  }
+]
