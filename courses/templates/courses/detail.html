@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курс</title>
+</head>
+<body>
+    <p><a href="/courses">Назад</a></p>
+
+    {% if course %}
+        <h1>{{ course.code }}</h1>
+        <p>Дисциплина: {{ course.discipline }}</p>
+        <p>Описание: {{ course.about }}</p>
+        <p>Начало: {{ course.course_start }}</p>
+        <p>Конец: {{ course.course_end }}</p>
+        <p>Преподаватель: {{ course.teacher }}</p>
+        <p>Группа: {{ course.group }}</p>
+    {% else %}
+        <p>Курс недоступен</p>
+    {% endif %}
+</body>
+</html>
