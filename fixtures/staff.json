@@ -1,0 +1,62 @@
+[
+  {
+    "model": "accounts.user",
+    "pk": 5,
+    "fields": {
+      "username": "grek_a",
+      "password": "pbkdf2_sha256$600000$abc123def456$hash",
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 6,
+    "fields": {
+      "username": "dashkov_a",
+      "password": "pbkdf2_sha256$600000$abc123def456$hash",
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 7,
+    "fields": {
+      "username": "tkachenko_d",
+      "password": "pbkdf2_sha256$600000$abc123def456$hash",
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "staff.teacher",
+    "pk": 1,
+    "fields": {
+      "last_name": "Дашков",
+      "first_name": "Антон",
+      "patronymic": "Евгеньевич",
+      "account": 6
+    }
+  },
+  {
+    "model": "staff.teacher",
+    "pk": 2,
+    "fields": {
+      "last_name": "Ткаченко",
+      "first_name": "Дарья",
+      "patronymic": "Сергеевна",
+      "account": 7
+    }
+  },
+  {
+    "model": "staff.manager",
+    "pk": 1,
+    "fields": {
+      "last_name": "Грек",
+      "first_name": "Александра",
+      "patronymic": "Александровна",
+      "account": 5
+    }
+  }
+]

@@ -1,0 +1,76 @@
+{% extends "accounts/base_auth.html" %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="{% url 'course_list' %}">Список дисциплин</a>
+    <span class="separator">></span>
+    <span>Дисциплина «{{ course.discipline.title }}»</span>
+</div>
+{% endblock %}
+
+{% block content %}
+<h1 class="page-title">{{ course.discipline.title }}</h1>
+
+<div class="card" style="margin-bottom: 24px;">
+    <div class="card-body">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
+            <div>
+                <p style="color: #6b7280; margin-bottom: 4px;">Весна 2 курс Р</p>
+                <p style="font-size: 14px; color: #4b5563;">Кол-во часов изучения: {{ course.discipline.duration }} академических часа</p>
+                <p style="font-size: 14px; color: #4b5563;">Максимальное кол-во баллов: 100 баллов</p>
+            </div>
+            <div>
+                <span class="badge badge-info">{{ course.group.name }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div style="padding: 8px 0;">
+            {% for topic in topics %}
+                <div style="border-bottom: 1px solid #e5e7eb; padding: 16px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong style="font-size: 16px;">
+                                <a href="{% url 'topic_detail' course.id topic.id %}" style="color: #2563eb; text-decoration: none;">
+                                    {{ topic.title }}
+                                </a>
+                            </strong>
+                            <div style="font-size: 13px; color: #6b7280; margin-top: 8px;">
+                                Учебная тема • {{ topic.hours }} 
+                                {% if topic.is_completed %}
+                                    <span class="badge badge-success" style="margin-left: 8px;">Пройдено</span>
+                                {% else %}
+                                    <span class="badge badge-warning" style="margin-left: 8px;">Не пройдено</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {% for cp in topic.control_points.all %}
+                        <div style="margin-top: 12px; margin-left: 20px; padding: 8px; background: #f9fafb; border-radius: 6px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span style="font-size: 14px;">Контрольная точка • {{ cp.title }}</span>
+                                    <div style="font-size: 12px; color: #6b7280;">Баллы: {{ cp.student_score }}/{{ cp.max_score }}</div>
+                                </div>
+                                {% if cp.status == 'passed' %}
+                                    <span class="badge badge-success">Сдано</span>
+                                {% elif cp.status == 'submitted' %}
+                                    <span class="badge badge-warning">На проверке</span>
+                                {% else %}
+                                    <span class="badge badge-danger">Не сдано</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% empty %}
+                <p style="text-align: center; padding: 40px; color: #6b7280;">Темы пока не добавлены</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

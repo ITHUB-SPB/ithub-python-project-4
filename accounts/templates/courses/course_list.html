@@ -1,0 +1,70 @@
+{% extends "accounts/base_auth.html" %}
+
+{% block title %}Список дисциплин{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Список дисциплин</h1>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Весенний семестр 25-26</h2>
+    </div>
+    <div class="card-body">
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="border-bottom: 2px solid #e5e7eb;">
+                    <th style="text-align: left; padding: 12px 8px; font-weight: 600; color: #374151;">Дисциплина</th>
+                    <th style="text-align: left; padding: 12px 8px; font-weight: 600; color: #374151;">Группа/подгруппа</th>
+                    <th style="text-align: left; padding: 12px 8px; font-weight: 600; color: #374151;">Баллы</th>
+                    <th style="text-align: left; padding: 12px 8px; font-weight: 600; color: #374151;">Оценка</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                    <tr style="border-bottom: 1px solid #e5e7eb;">
+                        <td colspan="4" style="padding: 16px 8px 8px 8px; font-weight: 600; color: #2563eb;">
+                            <a href="{% url 'course_detail' course.id %}" style="color: #2563eb; text-decoration: none;">
+                                {{ course.discipline.title }}
+                            </a>
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #e5e7eb;">
+                        <td style="padding: 8px 8px 16px 8px; color: #4b5563;">
+                            {{ course.teacher.last_name }} {{ course.teacher.first_name }} {{ course.teacher.patronymic|default:"" }}
+                        </td>
+                        <td style="padding: 8px 8px 16px 8px; color: #6b7280;">{{ course.group.name }}</td>
+                        <td style="padding: 8px 8px 16px 8px; font-weight: 500;">
+                            {% if course.discipline.title == "JavaScript DOM" %}
+                                92 из 100
+                            {% elif course.discipline.title == "Node.js" %}
+                                100 из 100
+                            {% elif course.discipline.title == "Python on web" %}
+                                16 из 53
+                            {% else %}
+                                —
+                            {% endif %}
+                        </td>
+                        <td style="padding: 8px 8px 16px 8px;">
+                            {% if course.discipline.title == "JavaScript DOM" %}
+                                <span class="badge badge-success">5</span>
+                            {% elif course.discipline.title == "Node.js" %}
+                                <span class="badge badge-success">5</span>
+                            {% elif course.discipline.title == "Python on web" %}
+                                <span class="badge badge-danger">2</span>
+                            {% else %}
+                                <span class="badge badge-info">—</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4" style="padding: 40px; text-align: center; color: #6b7280;">
+                            У вас нет активных курсов
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

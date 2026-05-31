@@ -1,0 +1,58 @@
+{% extends "accounts/base_auth.html" %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="{% url 'course_list' %}">Список дисциплин</a>
+    <span class="separator">></span>
+    <a href="{% url 'course_detail' course.id %}">Дисциплина «{{ course.discipline.title }}»</a>
+    <span class="separator">></span>
+    <span>{{ topic.title }}</span>
+</div>
+{% endblock %}
+
+{% block content %}
+<h1 class="page-title">{{ topic.title }}</h1>
+
+<div class="card">
+    <div class="card-header">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2>Наполнение темы</h2>
+            <div>
+                <span class="badge badge-info">Количество часов: {{ topic.hours }} академических часа</span>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div style="line-height: 1.6;">
+            {{ topic.content|safe }}
+        </div>
+        
+        <hr>
+        
+        {% for cp in control_points %}
+        <div style="margin-top: 24px; padding: 16px; background: #f9fafb; border-radius: 8px;">
+            <h3 style="margin-bottom: 12px;">{{ cp.title }}</h3>
+            <p style="color: #4b5563;">{{ cp.description }}</p>
+            <div style="margin-top: 16px;">
+                <strong>Максимальное кол-во баллов: {{ cp.max_score }} баллов</strong>
+            </div>
+            
+            {% if cp.status == 'passed' %}
+                <div style="margin-top: 16px;">
+                    <span class="badge badge-success">✅ Сдано • Баллы: {{ cp.student_score }}/{{ cp.max_score }}</span>
+                </div>
+            {% else %}
+                <div style="margin-top: 16px;">
+                    <textarea rows="4" style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px;" placeholder="Добавить ответ..."></textarea>
+                    <button class="btn btn-primary" style="margin-top: 12px;">Отправить ответ</button>
+                </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        
+        <div style="margin-top: 32px;">
+            <a href="{% url 'course_detail' course.id %}" class="btn btn-outline">← Назад к курсу</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

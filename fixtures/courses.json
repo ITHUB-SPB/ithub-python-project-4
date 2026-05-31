@@ -1,0 +1,110 @@
+[
+  {
+    "model": "courses.discipline",
+    "pk": 1,
+    "fields": {
+      "title": "JavaScript DOM",
+      "duration": 60,
+      "created_at": "2025-01-15T10:00:00Z",
+      "updated_at": "2025-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "courses.discipline",
+    "pk": 2,
+    "fields": {
+      "title": "Node.js",
+      "duration": 42,
+      "created_at": "2025-01-15T10:00:00Z",
+      "updated_at": "2025-01-20T10:00:00Z"
+    }
+  },
+  {
+    "model": "courses.discipline",
+    "pk": 3,
+    "fields": {
+      "title": "Python on web",
+      "duration": 60,
+      "created_at": "2025-01-15T10:00:00Z",
+      "updated_at": "2025-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 1,
+    "fields": {
+      "code": "JS-DOM-2025",
+      "about": "Изучение DOM в JavaScript",
+      "course_start": "2025-02-01",
+      "course_end": "2025-05-31",
+      "discipline": 1,
+      "group": 1,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 2,
+    "fields": {
+      "code": "JS-DOM-2025-2",
+      "about": "Изучение DOM в JavaScript (вторая группа)",
+      "course_start": "2025-02-01",
+      "course_end": "2025-05-31",
+      "discipline": 1,
+      "group": 2,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 3,
+    "fields": {
+      "code": "NODE-2025",
+      "about": "Изучение Node.js",
+      "course_start": "2025-02-10",
+      "course_end": "2025-06-15",
+      "discipline": 2,
+      "group": 1,
+      "teacher": 2
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 4,
+    "fields": {
+      "code": "NODE-2025-2",
+      "about": "Изучение Node.js (вторая группа)",
+      "course_start": "2025-02-10",
+      "course_end": "2025-06-15",
+      "discipline": 2,
+      "group": 2,
+      "teacher": 2
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 5,
+    "fields": {
+      "code": "PYTHON-WEB-2025",
+      "about": "Python веб-разработка",
+      "course_start": "2025-02-15",
+      "course_end": "2025-06-20",
+      "discipline": 3,
+      "group": 1,
+      "teacher": 2
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 6,
+    "fields": {
+      "code": "PYTHON-WEB-2025-2",
+      "about": "Python веб-разработка (вторая группа)",
+      "course_start": "2025-02-15",
+      "course_end": "2025-06-20",
+      "discipline": 3,
+      "group": 2,
+      "teacher": 2
+    }
+  }
+]
