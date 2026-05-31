@@ -1,0 +1,21 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Курсы</title>
+</head>
+<body>
+    <h1>Мои курсы</h1>
+    <a href="/auth/logout">Выйти</a>
+    <ul>
+        {% for course in courses %}
+            <li>
+                <a href="/courses/{{ course.id }}">{{ course.code }}</a>
+                {% if course.discipline %}
+                    {{ course.discipline.title }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

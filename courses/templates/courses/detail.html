@@ -1,0 +1,19 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Курс</title>
+</head>
+<body>
+    <h1>{{ course.code }}</h1>
+    <p>{{ course.about }}</p>
+    {% if course.discipline %}
+        <p>{{ course.discipline.title }}</p>
+        <p>{{ course.discipline.duration }}</p>
+    {% endif %}
+    {% if course.teacher %}
+        <p>{{ course.teacher.last_name }} {{ course.teacher.first_name }}</p>
+    {% endif %}
+    <a href="/courses/">Назад</a>
+</body>
+</html>
