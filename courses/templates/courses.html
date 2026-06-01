@@ -2,16 +2,26 @@
 
 {% block content %}
 {% if courses %}
-<div class="grid gap-4 md:grid-cols-2">
+<div style="display: flex; flex-direction: column; gap: 20px;">
     {% for course in courses %}
-    <a href="{% url 'course_detail' course.id %}"
-       class="card bg-base-100 shadow hover:shadow-lg transition">
-        <div class="card-body">
-            <h2 class="card-title">{{ course.discipline }}</h2>
-            <p class="text-sm opacity-70">{{ course.code }}</p>
-            <p class="text-sm">{{ course.about|default:"Нет описания" }}</p>
-            <div class="mt-2 text-xs opacity-60">{{ course.course_start }} → {{ course.course_end }}</div>
-        </div>
+    <a href="{% url 'course_detail' course.id %}" class="card bg-base-100 shadow hover:shadow-lg transition">
+        <div class="card bg-base-100 w-100 shadow-sm" style="display: flex; flex-direction: row;">
+            <div class="card-body">
+                <h2 class="card-title">{{ course.discipline }}</h2>
+                <p class="text-sm opacity-70">{{ course.code }}</p>
+                <p class="text-sm">{{ course.about|default:"Нет описания" }}</p>
+                <div class="mt-2 text-xs opacity-60">{{ course.course_start }} → {{ course.course_end }}</div>
+            </div>
+            <div class="card-actions items-center pr-10">
+                <div class="badge badge-success shadow-sm font-bold" style="height: 40px; width: 90px;">
+                    {% for course_id,score in scores.items %}
+                        {% if course_id == course.id %}
+                            {{ score }}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>  
     </a>
     {% endfor %}
 </div>
