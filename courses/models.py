@@ -75,7 +75,7 @@ class Submission(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE, null=False, verbose_name="Студент")
     assignment = models.ForeignKey(Assignment, on_delete=models.CASCADE, null=False, verbose_name="Задание")
     answer = models.TextField(null=False, blank=False, verbose_name="Ответ")
-    score = models.PositiveIntegerField(null=True, default=None, verbose_name="Оценка")
+    score = models.PositiveIntegerField(null=True, default=0, verbose_name="Оценка")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Последнее обновление")
 
@@ -83,7 +83,7 @@ class Submission(models.Model):
         return f'Ответ студента {self.student.last_name} {self.student.first_name} на задание {self.assignment.topic.title}'
     
     def save(self, *args, **kwargs):
-        if self.score is None:
+        if self.score is None or self.score == 0:
             self.score = 0
             super().save(*args, **kwargs) 
         if self.score > self.assignment.weight:

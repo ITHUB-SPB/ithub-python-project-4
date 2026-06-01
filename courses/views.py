@@ -32,7 +32,7 @@ def detail(request, course_id):
             scores[topic.id] = models.Submission.objects.filter(
                 student=request.user.student,
                 assignment=topic.assignment
-            ).first().score
+            ).values_list('score', flat=True).first()
         else:
             topic.submission = None
 

@@ -51,7 +51,7 @@
             <div class="badge badge-secondary">Контрольная точка</div></td>
             <td>{{ topic.assignment.weight }}</td>
             <td>{% for topic_id,score in scores.items %}
-                    {% if topic_id == topic.id %}
+                    {% if topic_id == topic.id and score != None %}
                         {{ score }}
                     {% endif %}
                 {% endfor %}</td>
