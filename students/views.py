@@ -16,6 +16,8 @@ def login(request):
         return redirect(reverse('login'))
         
     auth.login(request, user)
+    if user.is_staff:
+        return redirect(reverse('staff'))
     return redirect(reverse('courses'))
 
 
