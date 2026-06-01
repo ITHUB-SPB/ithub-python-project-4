@@ -14,6 +14,8 @@ from django.shortcuts import redirect
 @login_required(login_url=reverse_lazy('login'))
 def index(request):
     user = request.user
+    if not user.is_staff:
+        return redirect('courses')
 
     return render(request, 'admin_panel.html')
 
@@ -83,6 +85,8 @@ def courses(request):
     teachers = models.Teacher.objects.all()
     periods = models.Course.objects.filter().values('course_start', 'course_end').distinct()
 
+    if not request.user.is_staff:
+        return redirect('courses')
     if not request.user.is_superuser:
         courses = courses.filter(teacher=request.user.teacher)
 

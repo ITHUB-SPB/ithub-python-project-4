@@ -16,9 +16,11 @@ def login(request):
         return redirect(reverse('login'))
         
     auth.login(request, user)
+    print(user.is_staff)
     if user.is_staff:
         return redirect(reverse('staff'))
-    return redirect(reverse('courses'))
+    else:
+        return redirect(reverse('courses'))
 
 
 def logout(request):
