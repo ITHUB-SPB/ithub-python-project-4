@@ -1,0 +1,33 @@
+{% extends "infra/_layout_admin.html" %}
+
+{% block content %}
+<h2 class="font-bold text-primary" style="font-size: 42px;">
+    {% if request.user.is_superuser %}
+    Администрирование
+    {% else %}
+    Преподавание
+    {% endif %}
+</h2><br>
+
+<div class="join" style="width: auto">
+{% if request.user.is_superuser %}
+<a href="{% url 'students' %}">
+    <button class="btn btn-soft btn-primary font-bold font-xl btn join-item" style="width: 200px; height: 100px; font-size: 1.5rem;">Студенты</button>
+</a>
+<a href="{% url 'teachers' %}">
+    <button class="btn btn-soft btn-info font-bold font-xl btn join-item" style="width: 200px; height: 100px; font-size: 1.5rem;">Преподаватели</button>
+</a>
+<a href="{% url 'groups' %}">
+    <button class="btn btn-soft btn-warning font-bold font-xl btn join-item" style="width: 200px; height: 100px; font-size: 1.5rem;">Группы</button>
+</a>
+<a href="{% url 'disciplines' %}">
+    <button class="btn btn-soft btn-success font-bold font-xl btn join-item" style="width: 200px; height: 100px; font-size: 1.5rem;">Дисциплины</button>
+</a>
+{% endif %}
+<a href="{% url 'courses' %}">
+    <button class="btn btn-soft btn-accent font-bold font-xl btn join-item" style="width: 200px; height: 100px; font-size: 1.5rem;">Курсы</button>
+</a>
+</div>
+
+
+{% endblock %}

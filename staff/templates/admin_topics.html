@@ -1,0 +1,38 @@
+{% extends "infra/_layout_admin.html" %}
+
+{% block content %}
+<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+    <h2 class="font-bold text-primary" style="font-size: 42px;">Темы курса</h2>
+    <button class="btn btn-outline btn-primary" onclick="window.history.back()">Назад</button>
+</div><br />
+<div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100 border-3 border-primary">
+    <table class="table">
+        <!-- head -->
+        <thead>
+            <tr style="border: 2px solid #ff79c6;">
+                <th>Порядковый номер</th>
+                <th>Название темы</th>
+                <th>Длительность</th>
+                <th>Контент</th>
+                <th>Контрольная точка</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for topic in topics %}
+            <tr style="border: 2px solid #ff79c6;">
+                <td>{{ topic.id }}</td>
+                <td>{{ topic.title }}</td>
+                <td>{{ topic.duration }}</td>
+                <td>
+                    <div style="white-space: pre-line;">{{ topic.content }}</div>
+                </td>
+                <td> {% if topic.assignment %} 
+                    <a href="{% url 'assignment' course.id topic.id topic.assignment.id %}"><button class="btn btn-success">Перейти</button></a> {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

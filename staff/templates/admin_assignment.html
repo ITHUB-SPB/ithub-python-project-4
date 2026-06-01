@@ -1,0 +1,67 @@
+{% extends "infra/_layout_admin.html" %}
+
+{% block content %}
+<div class="card bg-base-100 shadow" style="margin-top: 10px;">
+    <div class="card-body space-y-2">
+        <div class="bg-base-100 justify-between flex">
+            <div class="flex-1">
+                <h2 class="text-xl font-bold">Контрольная точка</h2>
+            </div>
+            <div class="flex-none">
+                <div class="badge badge-soft badge-info">{{ topic.assignment.weight }} баллов</div>
+            </div>
+        </div>
+        <p>{{ topic.assignment.content }}</p>
+    </div>
+</div>
+<div class="card bg-base-100 shadow" style="margin-top: 10px;">
+    <div class="card-body space-y-2">
+        <h2 class="text-xl font-bold">Ответы на задание</h2>
+        {% for submission in submissions %}
+        <div class="bg-neutral flex"
+            style="padding: 10px; border-radius: 8px; justify-items: center; align-items: center; justify-content: space-between;">
+            <h2 class="text-s font-bold">{{ submission.student.last_name }} {{ submission.student.first_name }}</h2>
+            <div style="gap: 5px; display: flex; flex-direction: row; justify-content: center; align-items: center;">
+                {% if submission.score %}
+                <div class="badge badge-soft badge-success">Сдано</div>
+                <button class="btn btn-soft btn-info" onclick="document.getElementById('rate_{{ submission.id }}').showModal()">{{ submission.score }}/{{ topic.assignment.weight }} баллов</button>
+                <dialog id="rate_{{ submission.id }}" class="modal">
+                    <div class="modal-box">
+                        <h3 class="text-lg font-bold">Поставьте оценку</h3><br>
+                        <div class="modal-action">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="text" placeholder="макс. {{ topic.assignment.weight }}"
+                                    class="input" name="score" />
+                                <input type="hidden" name="submission_id" value="{{ submission.id }}" />
+                                <button class="btn" type="submit">Сохранить</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
+                {% else %}
+                <div class="badge badge-soft badge-warning">На проверке</div>
+                <button class="btn btn-soft btn-info" onclick="document.getElementById('rate_{{ submission.id }}').showModal()">Оценить</button>
+                <dialog id="rate_{{ submission.id }}" class="modal">
+                    <div class="modal-box">
+                        <h3 class="text-lg font-bold">Поставьте оценку</h3><br>
+                        <div class="modal-action">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="text" required placeholder="макс. {{ topic.assignment.weight }}"
+                                    class="input" name="score" />
+                                <input type="hidden" name="submission_id" value="{{ submission.id }}" />
+                                <button class="btn" type="submit">Сохранить</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
+                {% endif %}
+                <button class="btn btn-outline btn-primary" href='{% url ' submission' course.id topic.id submission.id
+                    %}'>Посмотреть</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

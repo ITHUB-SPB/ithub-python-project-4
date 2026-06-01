@@ -1,0 +1,60 @@
+{% extends "infra/_layout_admin.html" %}
+
+{% block content %}
+<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+    <h2 class="font-bold text-primary" style="font-size: 42px;">Курсы дисциплин</h2>
+    <form method="get" class="flex flex-row gap-2">
+        <select class="select" name="group" onchange="submit">
+            <option disabled selected>Группа</option>
+            {% for group in groups %}
+            <option value="{{ group.id }}">{{ group.title }}</option>
+            {% endfor %}
+        </select>
+        {% if request.user.is_superuser %}
+        <select class="select" name="teacher" onchange="submit">
+            <option disabled selected>Преподаватель</option>
+            {% for teacher in teachers %}
+            <option value="{{ teacher.id }}">{{ teacher.last_name }} {{ teacher.first_name }}</option>
+            {% endfor %}
+        </select>
+        {% endif %}
+        <select class="select" name="year" onchange="submit">
+            <option disabled selected>Курс</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Найти</button>
+    </form>
+</div><br />
+<div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
+    <table class="table">
+        <!-- head -->
+        <thead>
+            <tr>
+                <th>Код дисциплины</th>
+                <th>Название дисциплины</th>
+                <th>Длительность</th>
+                <th>Учебный период</th>
+                <th>Преподаватель</th>
+                <th>Группа</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td><a href="{% url 'topics' course.id %}" class="link link-primary">{{ course.code }}</a></td>
+                <td>{{ course.discipline.title }}</td>
+                <td>{{ course.discipline.duration }}</td>
+                <td>{{ course.course_start }} -> {{ course.course_end }}</td>
+                <td>{{ course.teacher.last_name }} {{ course.teacher.first_name }}</td>
+                <td>{{ course.group.title }}</td>
+            </tr>
+            
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
