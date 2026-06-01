@@ -1,0 +1,81 @@
+{% extends "infra/_layout.html" %}
+
+{% block content %}
+
+<div class="card bg-base-100 shadow">
+    <div class="card-actions justify-start mt-4">
+        <a href="{% url 'course_detail' course.id %}" class="btn btn-ghost">← Назад</a>
+    </div>
+    <div class="card-body space-y-2">
+        <h2 class="text-xl font-bold">{{ topic.title }}</h2>
+        <div class="breadcrumbs text-sm">
+            <ul>
+                <li><a href="{% url 'courses' %}">Дисциплины</a></li>
+                <li><a href="{% url 'course_detail' course.id %}">{{ course.discipline.title }}</a></li>
+                <li>{{ topic.title }}</li>
+            </ul>
+        </div>
+        <div class="text-sm opacity-60">Количество часов изучения: {{ topic.duration }} академических часа</div>
+    </div>
+</div>
+<div class="card bg-base-100 shadow" style="margin-top: 20px;">
+    <div class="card-body space-y-2">
+        <h2 class="text-xl font-bold">Содержание темы</h2>
+        <p>
+            {{ topic.content }}
+        </p>
+
+    </div>
+</div>
+
+{% if topic.assignment %}
+
+<div class="card bg-base-100 shadow" style="margin-top: 10px;">
+    <div class="card-body space-y-2">
+        <div class="bg-base-100 justify-between flex">
+            <div class="flex-1">
+                <h2 class="text-xl font-bold">Контрольная точка</h2>
+            </div>
+            {% if submission.score and submission.student == request.user.student %}
+            <div class="flex-none">
+                <div class="badge badge-soft badge-success">Сдано</div>
+                <div class="badge badge-soft badge-info">{{ submission.score }}/{{ topic.assignment.weight }} баллов</div>
+            </div>
+            {% elif submission.student == request.user.student %}
+            <div class="flex-none">
+                <div class="badge badge-soft badge-warning">На проверке</div>
+            </div>
+            {% else %}
+            <div class="flex-none">
+                <div class="badge badge-ghost">Не сдано</div>
+                <div class="badge badge-soft badge-info">{{ topic.assignment.weight }} баллов</div>
+            </div>
+            {% endif %}
+        </div>
+
+        <p>{{ topic.assignment.content }}</p>
+    </div>
+
+    {% if submission and submission.student == request.user.student %}
+    <h2 class="text-xl font-bold" style="margin-left: 30px;">Ответ на контрольную точку</h2>
+    <div class="card-body space-y-2">
+        <div class="bg-neutral rounded-box" style="display: flex; flex-direction: column; padding: 20px;">
+            <div class="font-bold text-xl">{{ submission.student.last_name }} {{ submission.student.first_name }} {{submission.student.middle_name }}</div>
+            <div class="text-s font-semibold opacity-60"> {{ submission.student.group.title }}</div>
+            <p class="list-col-wrap text-s">{{ submission.answer }}</p>
+        </div>
+    </div>
+    {% else %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="card-body">
+            <h2 class="text-xl font-bold">Ответ на контрольную точку</h2>
+            <textarea name="answer" class="textarea textarea-bordered w-full"
+                placeholder="Введите ваш ответ..."></textarea>
+            <button type="submit" class="btn btn-primary mt-4">Отправить</button>
+        </div>
+    </form>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}
