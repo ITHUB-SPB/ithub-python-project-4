@@ -4,7 +4,7 @@
 
 <div class="card bg-base-100 shadow">
     <div class="card-body space-y-2">
-        <h2 class="text-xl font-bold">{{ course.discipline }}</h2>
+        <h2 class="font-bold text-primary" style="font-size: 42px;">{{ course.discipline }}</h2>
         <p class="text-sm opacity-70">{{ course.code }}</p>
         <p>
             <span class="font-semibold">Группа:</span>
@@ -25,4 +25,41 @@
         </div>
     </div>
 </div>
+
+{% if course.discipline.topic_set.first %}
+
+<div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100" style="margin-top: 20px;">
+  <h2 class="font-bold text-warning" style="margin: 20px; font-size: 24px;">Темы курса</h2>
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>Тема</th>
+        <th>Длительность</th>
+        <th>Содержание</th>
+        <th>Макс. балл</th>
+        <th>Оценка</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for topic in course.discipline.topic_set.all %}
+        <tr>
+          <td><a href="{% url 'topic' course.id topic.id %}">{{ topic.title }}</a></td>
+          <td>{{ topic.duration }}</td>
+          <td><div class="badge badge-success">Учебная тема</div>
+          {% if topic.assignment %}
+            <div class="badge badge-secondary">Контрольная точка</div></td>
+            <td>{{ topic.assignment.weight }}</td>
+            <td>{% for topic_id,score in scores.items %}
+                    {% if topic_id == topic.id %}
+                        {{ score }}
+                    {% endif %}
+                {% endfor %}</td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
 {% endblock %}
