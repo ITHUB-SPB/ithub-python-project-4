@@ -14,6 +14,10 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "accounts.apps.AccountsConfig",
     "students.apps.StudentsConfig",
+    "staff.apps.StaffConfig",
+    "courses.apps.CoursesConfig",
+    "assignments.apps.AssignmentsConfig",
+    "markdownx",
 ]
 
 MIDDLEWARE = [
@@ -29,7 +33,11 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "students" / "templates", BASE_DIR / "accounts" / "templates"],
+        "DIRS": [
+            BASE_DIR / "students" / "templates",
+            BASE_DIR / "accounts" / "templates",
+            BASE_DIR / "courses" / "templates",
+                ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -51,3 +59,7 @@ LANGUAGE_CODE = "ru-RU"
 TIME_ZONE = "Europe/Moscow"
 USE_I18N = True
 USE_TZ = True
+
+MARKDOWNX_MARKDOWN_EXTENSIONS = ['extra', 'codehilite']
+MARKDOWNX_MEDIA_PATH = 'markdownx/'
+#BETA

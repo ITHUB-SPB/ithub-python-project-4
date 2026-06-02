@@ -24,11 +24,9 @@ class CourseAdmin(ModelAdmin):
         qs = super().get_queryset(request)
         if request.user.is_superuser:
             return qs
-        # Для преподавателей - только их курсы
         if hasattr(request.user, 'teacher_profile'):
             return qs.filter(teacher=request.user.teacher_profile)
         return qs
-
 
 @admin.register(Topic)
 class TopicAdmin(ModelAdmin):

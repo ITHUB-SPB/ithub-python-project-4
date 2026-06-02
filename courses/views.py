@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Course, Topic
-from assignments.models import Assignment, Submission
+from assignments.models import Submission
+from assignments.forms import SubmissionForm   # ← добавить импорт
 from students.models import Student
 
 @login_required
@@ -74,7 +75,8 @@ def course_detail(request, course_id):
             'topic': topic,
             'has_assignment': hasattr(topic, 'assignment'),
             'score': None,
-            'max_score': None
+            'max_score': None,
+            'duration': topic.duration,   # добавим, если нужно в шаблоне
         }
         
         if hasattr(topic, 'assignment'):
@@ -137,25 +139,25 @@ def topic_detail(request, topic_id):
 def submit_answer(request, topic_id):
     """Отправка ответа на контрольную точку"""
     if request.method != 'POST':
-        return redirect('courses:topic_detail', topic_id=topic_id)
+        return redirect('topics:detail', topic_id=topic_id)  # исправлено
     
     topic = get_object_or_404(Topic, id=topic_id)
     student = request.user.student_profile
     
     if not hasattr(topic, 'assignment'):
         messages.error(request, 'К этой теме нет контрольной точки')
-        return redirect('courses:topic_detail', topic_id=topic_id)
+        return redirect('topics:detail', topic_id=topic_id)
     
     assignment = topic.assignment
     
     if Submission.objects.filter(student=student, assignment=assignment).exists():
         messages.error(request, 'Вы уже отправили ответ на эту контрольную точку')
-        return redirect('courses:topic_detail', topic_id=topic_id)
+        return redirect('topics:detail', topic_id=topic_id)
     
     answer = request.POST.get('answer')
     if not answer:
         messages.error(request, 'Пожалуйста, введите ответ')
-        return redirect('courses:topic_detail', topic_id=topic_id)
+        return redirect('topics:detail', topic_id=topic_id)
     
     Submission.objects.create(
         student=student,
@@ -164,4 +166,4 @@ def submit_answer(request, topic_id):
     )
     
     messages.success(request, 'Ответ успешно отправлен!')
-    return redirect('courses:topic_detail', topic_id=topic_id)
+    return redirect('topics:detail', topic_id=topic_id)

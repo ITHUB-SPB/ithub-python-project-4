@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from students.models import Group
+from markdownx.models import MarkdownxField
 
 class Discipline(models.Model):
     title = models.CharField(
@@ -99,7 +100,7 @@ class Topic(models.Model):
         max_length=50,
         verbose_name='название темы'
     )
-    content = models.TextField(
+    content = MarkdownxField(
         verbose_name='содержание'
     )
     duration = models.PositiveIntegerField(
