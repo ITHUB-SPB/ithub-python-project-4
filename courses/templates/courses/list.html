@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ru">
 <head>
     <meta charset="utf-8">
@@ -10,11 +10,14 @@
     <ul>
         {% for course in courses %}
             <li>
-                <a href="/courses/{{ course.id }}">{{ course.code }}</a>
+                <p><a href="/courses/{{ course.id }}">{{ course.code }}</a></p>
                 {% if course.discipline %}
-                    {{ course.discipline.title }}
+                    <p>{{ course.discipline.title }}</p>
                 {% endif %}
+                <p>Баллы: {{ course.total_score }} / {{ course.total_points }}</p>
             </li>
+        {% empty %}
+            <li>Курсов нет</li>
         {% endfor %}
     </ul>
 </body>

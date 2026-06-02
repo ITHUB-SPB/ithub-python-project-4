@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ru">
 <head>
     <meta charset="utf-8">
@@ -8,12 +8,40 @@
     <h1>{{ course.code }}</h1>
     <p>{{ course.about }}</p>
     {% if course.discipline %}
-        <p>{{ course.discipline.title }}</p>
-        <p>{{ course.discipline.duration }}</p>
+        <p>Дисциплина: {{ course.discipline.title }}</p>
+        <p>Всего часов: {{ course.discipline.duration }}</p>
     {% endif %}
     {% if course.teacher %}
-        <p>{{ course.teacher.last_name }} {{ course.teacher.first_name }}</p>
+        <p>Преподаватель: {{ course.teacher.last_name }} {{ course.teacher.first_name }}</p>
     {% endif %}
-    <a href="/courses/">Назад</a>
+
+    <h2>Топики</h2>
+    <ul>
+        {% for topic in topics %}
+            <li>
+                <p><a href="/topics/{{ topic.id }}">{{ topic.ordering_number }}. {{ topic.title }}</a></p>
+                <p>Часы: {{ topic.duration }}</p>
+                {% if topic.assignment %}
+                    <p>Есть контрольная точка</p>
+                    {% if topic.student_submission %}
+                        <p>
+                            Баллы:
+                            {% if topic.student_submission.score == None %}
+                                На проверке
+                            {% else %}
+                                {{ topic.student_submission.score }} / {{ topic.assignment.weight }}
+                            {% endif %}
+                        </p>
+                    {% else %}
+                        <p>Баллы: 0 / {{ topic.assignment.weight }}</p>
+                    {% endif %}
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>Топиков нет</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/courses">Назад</a>
 </body>
 </html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Топик</title>
+</head>
+<body>
+    <h1>{{ topic.ordering_number }}. {{ topic.title }}</h1>
+
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+
+    <p>{{ topic.content }}</p>
+    <p>Часы: {{ topic.duration }}</p>
+
+    {% if assignment %}
+        <h2>Контрольная точка</h2>
+        <p>Максимум баллов: {{ assignment.weight }}</p>
+
+        {% if submission %}
+            <p>Ответ уже отправлен</p>
+            <p>{{ submission.answer }}</p>
+            {% if submission.score == None %}
+                <p>На проверке</p>
+            {% else %}
+                <p>Оценка: {{ submission.score }}</p>
+            {% endif %}
+        {% else %}
+            <form method="post">
+                {% csrf_token %}
+                <textarea name="answer" rows="8" cols="60"></textarea>
+                <br>
+                <button type="submit">Отправить</button>
+            </form>
+        {% endif %}
+    {% endif %}
+
+    <a href="/courses">К курсам</a>
+</body>
+</html>
