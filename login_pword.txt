@@ -1,0 +1,6 @@
+student_ivanov nolxp123
+student_petrov nolxp123
+student_sidorova nolxp123
+teacher_smirnov nolxp123
+teacher_kozlova nolxp123
+manager_orlova nolxp123
