@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}{{ topic.title }} | noLXP{% endblock %}
+
+{% block content %}
+<section class="card stack">
+    <div class="breadcrumbs">
+        <a href="{% url 'courses:list' %}">Список дисциплин</a>
+        <span>›</span>
+        <a href="{% url 'courses:detail' course.id %}">{{ course.discipline.title }}</a>
+        <span>›</span>
+        <span>{{ topic.title }}</span>
+    </div>
+    <div>
+        <h1 class="section-title">{{ topic.title }}</h1>
+        <div class="button-row">
+            <span class="badge badge-topic">Учебная тема</span>
+            <span class="muted">Количество часов изучения: {{ topic.study_hours }}</span>
+        </div>
+    </div>
+    <div class="content-block">
+        <h3>Зачем это учить?</h3>
+        <p>{{ topic.goal|default:"Информация будет добавлена позже." }}</p>
+    </div>
+    <div class="content-block">
+        <h3>Как это учить?</h3>
+        <p>{{ topic.study_plan|default:"Информация будет добавлена позже." }}</p>
+    </div>
+    <div class="content-block">
+        <h3>Содержательная часть курса</h3>
+        <p>{{ topic.content|default:"Материалы пока не заполнены." }}</p>
+        <div class="muted" style="margin-top: 14px;">Обновлено: {{ topic.updated_at|date:"d.m.Y" }}</div>
+    </div>
+</section>
+{% endblock %}

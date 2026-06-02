@@ -1,0 +1,90 @@
+[
+  {
+    "model": "students.group",
+    "pk": 1,
+    "fields": {
+      "name": "IT-9.24.2",
+      "course": "2"
+    }
+  },
+  {
+    "model": "students.group",
+    "pk": 2,
+    "fields": {
+      "name": "IT-9.24.5",
+      "course": "2"
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$AU1qFZ6ESbNEtgkmBdYvn8$vsucE6mtFPJduQTMJhuJ7sPS7pvDiyAQZiGyPGcuSh4=",
+      "last_login": null,
+      "username": "student_ivanov",
+      "is_staff": false,
+      "is_superuser": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$AU1qFZ6ESbNEtgkmBdYvn8$vsucE6mtFPJduQTMJhuJ7sPS7pvDiyAQZiGyPGcuSh4=",
+      "last_login": null,
+      "username": "student_petrov",
+      "is_staff": false,
+      "is_superuser": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$AU1qFZ6ESbNEtgkmBdYvn8$vsucE6mtFPJduQTMJhuJ7sPS7pvDiyAQZiGyPGcuSh4=",
+      "last_login": null,
+      "username": "student_sidorova",
+      "is_staff": false,
+      "is_superuser": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": 1,
+    "fields": {
+      "first_name": "Иван",
+      "last_name": "Иванов",
+      "middle_name": "Иванович",
+      "account": 1,
+      "group": 1
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": 2,
+    "fields": {
+      "first_name": "Пётр",
+      "last_name": "Петров",
+      "middle_name": "Алексеевич",
+      "account": 2,
+      "group": 1
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": 3,
+    "fields": {
+      "first_name": "Анна",
+      "last_name": "Сидорова",
+      "middle_name": "Олеговна",
+      "account": 3,
+      "group": 2
+    }
+  }
+]

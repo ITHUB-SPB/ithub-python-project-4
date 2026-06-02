@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}noLXP{% endblock %}</title>
+    <style>
+        :root {
+            --bg: #f3f6fb;
+            --panel: #ffffff;
+            --text: #13213a;
+            --muted: #69758b;
+            --line: #dbe2ee;
+            --accent: #8b3dff;
+            --accent-soft: #f1e7ff;
+            --success: #e4f8d9;
+            --success-text: #287344;
+            --warning: #fff0c7;
+            --warning-text: #8c6500;
+            --danger: #ffe0e3;
+            --danger-text: #a33549;
+            --neutral: #edf1f7;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(139, 61, 255, 0.08), transparent 22%),
+                linear-gradient(180deg, #f9fbff 0%, var(--bg) 100%);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 32px;
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(18px);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .brand-mark {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .nav {
+            display: flex;
+            gap: 18px;
+        }
+
+        .nav a {
+            padding-bottom: 6px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav a.active {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .user-panel {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .shell {
+            max-width: 1180px;
+            margin: 24px auto;
+            padding: 0 20px 32px;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            box-shadow: 0 20px 45px rgba(14, 31, 53, 0.06);
+            padding: 24px;
+        }
+
+        .messages {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .message {
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            background: var(--neutral);
+        }
+
+        .message.error {
+            background: var(--danger);
+            color: var(--danger-text);
+        }
+
+        .message.success {
+            background: var(--success);
+            color: var(--success-text);
+        }
+
+        .breadcrumbs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0 0 18px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .breadcrumbs span:last-child {
+            color: var(--text);
+        }
+
+        .section-title {
+            margin: 0 0 20px;
+            font-size: 36px;
+            line-height: 1.1;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .meta-item {
+            padding: 16px;
+            border-radius: 18px;
+            background: #f7f9fd;
+            border: 1px solid var(--line);
+        }
+
+        .meta-label {
+            display: block;
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 18px 12px;
+            text-align: left;
+            border-top: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        th {
+            color: var(--muted);
+            font-weight: 600;
+            border-top: 0;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            line-height: 1;
+        }
+
+        .badge-topic {
+            background: #ddfac8;
+            color: #467516;
+        }
+
+        .badge-control {
+            background: #ffd7da;
+            color: #b24958;
+        }
+
+        .badge-neutral {
+            background: var(--neutral);
+            color: var(--muted);
+        }
+
+        .badge-success {
+            background: var(--success);
+            color: var(--success-text);
+        }
+
+        .badge-warning {
+            background: var(--warning);
+            color: var(--warning-text);
+        }
+
+        .stack {
+            display: grid;
+            gap: 18px;
+        }
+
+        .content-block {
+            padding: 20px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: #fbfcff;
+        }
+
+        .content-block h3 {
+            margin: 0 0 12px;
+            font-size: 28px;
+        }
+
+        .content-block p {
+            margin: 0;
+            line-height: 1.65;
+            white-space: pre-line;
+        }
+
+        .auth-wrap {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+        }
+
+        .auth-card {
+            width: min(460px, 100%);
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            box-shadow: 0 24px 50px rgba(17, 35, 60, 0.12);
+            padding: 28px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid #cad3e1;
+            background: #fff;
+            font: inherit;
+            color: var(--text);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .form-row {
+            margin-bottom: 16px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 18px;
+            border: 0;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #ae57ff, #7c3aed);
+            color: #fff;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .button-secondary {
+            background: var(--neutral);
+            color: var(--text);
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .score-box {
+            min-width: 88px;
+            padding: 12px 14px;
+            border-radius: 18px;
+            background: #f5f7fc;
+            text-align: center;
+        }
+
+        .list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .title-link {
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+
+            .brand {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+
+            th, td {
+                padding: 14px 8px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% block body %}
+        <header class="page-header">
+            <div class="brand">
+                <div class="brand-mark">noLXP</div>
+                {% if request.user.is_authenticated %}
+                    <nav class="nav">
+                        <a href="/courses" class="active">Обучение</a>
+                    </nav>
+                {% endif %}
+            </div>
+            {% if request.user.is_authenticated %}
+                <div class="user-panel">
+                    <div>{{ request.user.display_name }}</div>
+                    <div class="avatar">{{ request.user.avatar_text }}</div>
+                    <a href="/auth/logout" class="button button-secondary">Выйти</a>
+                </div>
+            {% endif %}
+        </header>
+        <main class="shell">
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <div class="message {{ message.tags }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% block content %}{% endblock %}
+        </main>
+    {% endblock %}
+</body>
+</html>

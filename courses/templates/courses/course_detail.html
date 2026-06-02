@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}{{ course.discipline.title|default:"Курс" }} | noLXP{% endblock %}
+
+{% block content %}
+<section class="card">
+    <div class="breadcrumbs">
+        <a href="{% url 'courses:list' %}">Список дисциплин</a>
+        <span>›</span>
+        <span>{{ course.discipline.title|default:"Курс" }}</span>
+    </div>
+    <h1 class="section-title">{{ course.discipline.title|default:"Курс" }}</h1>
+    <div class="meta-grid">
+        <div class="meta-item">
+            <span class="meta-label">Код курса</span>
+            {{ course.code }}
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Кол-во часов изучения</span>
+            {{ discipline_hours }} академических часа
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Максимальное кол-во баллов</span>
+            {{ max_score }} баллов
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Преподаватель</span>
+            {{ course.teacher.full_name|default:"Не назначен" }}
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Тема</th>
+                <th>Тип</th>
+                <th>Баллы</th>
+                <th>Часы</th>
+                <th>Статус</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in topic_items %}
+                <tr>
+                    <td>
+                        <a class="title-link" href="{% url 'courses:topic-detail' item.topic.id %}">{{ item.topic.title }}</a>
+                    </td>
+                    <td>
+                        <div class="stack">
+                            <span class="badge badge-topic">Учебная тема</span>
+                            {% if item.control_point %}
+                                <span class="badge badge-control">Контрольная точка</span>
+                            {% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        {% if item.control_point %}
+                            {% if item.earned_score is not None %}
+                                {{ item.earned_score }}/{{ item.max_score }}
+                            {% else %}
+                                - / {{ item.max_score }}
+                            {% endif %}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+                    <td>{{ item.topic.study_hours }}</td>
+                    <td>
+                        {% if item.status == "Сдано" %}
+                            <span class="badge badge-success">{{ item.status }}</span>
+                        {% elif item.status == "На проверке" %}
+                            <span class="badge badge-warning">{{ item.status }}</span>
+                        {% elif item.status == "Не сдано" %}
+                            <span class="badge badge-neutral">{{ item.status }}</span>
+                        {% else %}
+                            <span class="badge badge-topic">{{ item.status }}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">Темы для курса пока не добавлены.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

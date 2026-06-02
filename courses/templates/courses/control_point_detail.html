@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}{{ control_point.title }} | noLXP{% endblock %}
+
+{% block content %}
+<section class="card stack">
+    <div class="breadcrumbs">
+        <a href="{% url 'courses:list' %}">Список дисциплин</a>
+        <span>›</span>
+        <a href="{% url 'courses:detail' course.id %}">{{ course.discipline.title }}</a>
+        <span>›</span>
+        <span>{{ control_point.title }}</span>
+    </div>
+    <div class="list-header">
+        <div>
+            <span class="badge badge-control">Контрольная точка</span>
+            <h1 class="section-title" style="margin-top: 16px;">{{ control_point.title }}</h1>
+            <div class="muted">Максимальное кол-во баллов: {{ control_point.max_score }} баллов</div>
+        </div>
+        <div class="score-box">
+            <div class="muted">Баллы</div>
+            <div style="font-size: 28px; font-weight: 700;">{{ control_point.max_score }}</div>
+        </div>
+    </div>
+    <div class="content-block">
+        <h3>Задание</h3>
+        <p>{{ control_point.task }}</p>
+    </div>
+    {% if submission %}
+        <div class="content-block">
+            <h3>Результат</h3>
+            {% if submission.score is not None %}
+                <p>Оценка преподавателя: {{ submission.score }} из {{ control_point.max_score }}</p>
+            {% else %}
+                <p>На проверке</p>
+            {% endif %}
+            {% if submission.message %}
+                <p style="margin-top: 14px;">Ваш ответ: {{ submission.message }}</p>
+            {% endif %}
+            {% if submission.attachment %}
+                <p style="margin-top: 14px;"><a href="{{ submission.attachment.url }}">Прикреплённый файл</a></p>
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="content-block">
+            <h3>Добавить ответ</h3>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+                    <label for="{{ form.message.id_for_label }}">Сообщение</label>
+                    {{ form.message }}
+                </div>
+                <div class="form-row">
+                    <label for="{{ form.attachment.id_for_label }}">Прикрепить файл</label>
+                    {{ form.attachment }}
+                </div>
+                <button type="submit" class="button">Отправить</button>
+            </form>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

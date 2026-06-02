@@ -1,0 +1,411 @@
+[
+  {
+    "model": "courses.discipline",
+    "pk": 1,
+    "fields": {
+      "title": "Node.js",
+      "duration": 42,
+      "curriculum": "",
+      "created_at": "2026-02-01T08:00:00Z",
+      "updated_at": "2026-05-25T08:00:00Z"
+    }
+  },
+  {
+    "model": "courses.discipline",
+    "pk": 2,
+    "fields": {
+      "title": "Python Web",
+      "duration": 48,
+      "curriculum": "",
+      "created_at": "2026-02-02T08:00:00Z",
+      "updated_at": "2026-05-26T08:00:00Z"
+    }
+  },
+  {
+    "model": "courses.discipline",
+    "pk": 3,
+    "fields": {
+      "title": "Алгоритмы",
+      "duration": 36,
+      "curriculum": "",
+      "created_at": "2026-02-03T08:00:00Z",
+      "updated_at": "2026-05-27T08:00:00Z"
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 1,
+    "fields": {
+      "code": "NJS-24-01",
+      "about": "Основы платформы Node.js для группы IT-9.24.2",
+      "course_start": "2026-02-10",
+      "course_end": "2026-06-10",
+      "discipline": 1,
+      "group": 1,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 2,
+    "fields": {
+      "code": "NJS-24-02",
+      "about": "Основы платформы Node.js для группы IT-9.24.5",
+      "course_start": "2026-02-10",
+      "course_end": "2026-06-10",
+      "discipline": 1,
+      "group": 2,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 3,
+    "fields": {
+      "code": "PYW-24-01",
+      "about": "Создание веб-приложений на Django",
+      "course_start": "2026-02-11",
+      "course_end": "2026-06-15",
+      "discipline": 2,
+      "group": 1,
+      "teacher": 2
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 4,
+    "fields": {
+      "code": "PYW-24-02",
+      "about": "Создание веб-приложений на Django",
+      "course_start": "2026-02-11",
+      "course_end": "2026-06-15",
+      "discipline": 2,
+      "group": 2,
+      "teacher": 2
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 5,
+    "fields": {
+      "code": "ALG-24-01",
+      "about": "Базовые структуры данных и алгоритмы",
+      "course_start": "2026-02-15",
+      "course_end": "2026-06-20",
+      "discipline": 3,
+      "group": 1,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 6,
+    "fields": {
+      "code": "ALG-24-02",
+      "about": "Базовые структуры данных и алгоритмы",
+      "course_start": "2026-02-15",
+      "course_end": "2026-06-20",
+      "discipline": 3,
+      "group": 2,
+      "teacher": 2
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 1,
+    "fields": {
+      "discipline": 1,
+      "title": "Введение в Node.js",
+      "study_hours": 2,
+      "order": 1,
+      "goal": "Понять, где применяется Node.js и как устроена среда выполнения.",
+      "study_plan": "Прочитать обзор, повторить базовые команды и разобрать примеры запуска скриптов.",
+      "content": "Node.js позволяет выполнять JavaScript вне браузера и используется для серверных приложений, CLI-утилит и автоматизации.",
+      "updated_at": "2026-05-25T08:30:00Z"
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 2,
+    "fields": {
+      "discipline": 1,
+      "title": "Установка Node.js и REPL",
+      "study_hours": 2,
+      "order": 2,
+      "goal": "Научиться устанавливать Node.js и использовать REPL для проверки гипотез.",
+      "study_plan": "Установить платформу, открыть REPL, выполнить команды и сохранить заметки по ключевым действиям.",
+      "content": "Разобраны установка Node.js, проверка версии, запуск REPL и работа с простыми выражениями.",
+      "updated_at": "2026-05-25T09:00:00Z"
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 3,
+    "fields": {
+      "discipline": 1,
+      "title": "Модули и npm",
+      "study_hours": 4,
+      "order": 3,
+      "goal": "Освоить организацию проекта через модули и менеджер пакетов npm.",
+      "study_plan": "Создать новый проект, подключить зависимости и собрать небольшой пример с импортами.",
+      "content": "Тема покрывает package.json, локальные зависимости, модульную систему и базовые скрипты npm.",
+      "updated_at": "2026-05-25T09:30:00Z"
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 4,
+    "fields": {
+      "discipline": 2,
+      "title": "Старт работы с Django",
+      "study_hours": 2,
+      "order": 1,
+      "goal": "Понять структуру Django-проекта и роль приложений.",
+      "study_plan": "Создать проект, изучить настройки и маршруты, повторить команды управления.",
+      "content": "Рассматриваются структура проекта, приложения, settings, urls и базовые manage.py-команды.",
+      "updated_at": "2026-05-26T08:30:00Z"
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 5,
+    "fields": {
+      "discipline": 2,
+      "title": "Маршруты и шаблоны",
+      "study_hours": 4,
+      "order": 2,
+      "goal": "Научиться связывать URL, view и шаблон.",
+      "study_plan": "Собрать набор страниц, передавать данные из view и повторить работу с тегами шаблонизатора.",
+      "content": "Изучаются path, render, namespaces, наследование шаблонов и вывод контекста.",
+      "updated_at": "2026-05-26T09:00:00Z"
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 6,
+    "fields": {
+      "discipline": 2,
+      "title": "Формы и модели",
+      "study_hours": 6,
+      "order": 3,
+      "goal": "Освоить создание форм, валидацию и взаимодействие с моделями.",
+      "study_plan": "Сделать модель, форму, обработчик POST-запроса и проверить сохранение данных в базе.",
+      "content": "Тема посвящена ModelForm, полям моделей, миграциям и обработке пользовательского ввода.",
+      "updated_at": "2026-05-26T09:30:00Z"
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 7,
+    "fields": {
+      "discipline": 3,
+      "title": "Сложность алгоритмов",
+      "study_hours": 3,
+      "order": 1,
+      "goal": "Научиться оценивать алгоритмы по времени и памяти.",
+      "study_plan": "Разобрать нотацию O-большое и сравнить несколько простых алгоритмов на примерах.",
+      "content": "Покрываются понятия асимптотики, лучшие и худшие случаи и примеры оценки сложности.",
+      "updated_at": "2026-05-27T08:30:00Z"
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 8,
+    "fields": {
+      "discipline": 3,
+      "title": "Сортировки",
+      "study_hours": 4,
+      "order": 2,
+      "goal": "Понять различия между популярными алгоритмами сортировки.",
+      "study_plan": "Сравнить пузырьковую сортировку, вставки и быструю сортировку по числу операций.",
+      "content": "Тема объясняет стабильность сортировки, сложность и области применения разных подходов.",
+      "updated_at": "2026-05-27T09:00:00Z"
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 9,
+    "fields": {
+      "discipline": 3,
+      "title": "Деревья поиска",
+      "study_hours": 5,
+      "order": 3,
+      "goal": "Разобраться в базовой структуре бинарного дерева поиска.",
+      "study_plan": "Построить дерево вручную, выполнить вставку и поиск элементов, описать случаи обходов.",
+      "content": "Рассматриваются свойства BST, поиск, вставка и варианты обхода дерева.",
+      "updated_at": "2026-05-27T09:30:00Z"
+    }
+  },
+  {
+    "model": "courses.controlpoint",
+    "pk": 1,
+    "fields": {
+      "title": "КТ №1. Node.js REPL",
+      "task": "Установите Node.js, запустите REPL, выполните несколько выражений и опишите результат работы.",
+      "max_score": 10,
+      "topic": 2
+    }
+  },
+  {
+    "model": "courses.controlpoint",
+    "pk": 2,
+    "fields": {
+      "title": "КТ №2. Модули и npm",
+      "task": "Создайте проект с package.json, подключите зависимость и покажите пример работы собственного модуля.",
+      "max_score": 12,
+      "topic": 3
+    }
+  },
+  {
+    "model": "courses.controlpoint",
+    "pk": 3,
+    "fields": {
+      "title": "КТ №1. Маршруты и шаблоны",
+      "task": "Соберите две страницы Django, настройте маршруты и выведите на шаблон данные из контекста.",
+      "max_score": 15,
+      "topic": 5
+    }
+  },
+  {
+    "model": "courses.controlpoint",
+    "pk": 4,
+    "fields": {
+      "title": "КТ №2. Формы и модели",
+      "task": "Создайте модель, форму и обработчик POST-запроса с сохранением данных в базу.",
+      "max_score": 20,
+      "topic": 6
+    }
+  },
+  {
+    "model": "courses.controlpoint",
+    "pk": 5,
+    "fields": {
+      "title": "КТ №1. Сортировки",
+      "task": "Сравните две сортировки, приведите их сложность и опишите случаи, когда каждая из них удобнее.",
+      "max_score": 10,
+      "topic": 8
+    }
+  },
+  {
+    "model": "courses.controlpoint",
+    "pk": 6,
+    "fields": {
+      "title": "КТ №2. Деревья поиска",
+      "task": "Постройте бинарное дерево поиска по заданному набору чисел и покажите обходы.",
+      "max_score": 18,
+      "topic": 9
+    }
+  },
+  {
+    "model": "courses.submission",
+    "pk": 1,
+    "fields": {
+      "course": 1,
+      "control_point": 1,
+      "student": 1,
+      "message": "Установил Node.js, проверил версию, выполнил выражения и сохранил вывод.",
+      "attachment": null,
+      "score": 9,
+      "created_at": "2026-05-15T10:00:00Z",
+      "reviewed_at": "2026-05-16T10:00:00Z"
+    }
+  },
+  {
+    "model": "courses.submission",
+    "pk": 2,
+    "fields": {
+      "course": 1,
+      "control_point": 2,
+      "student": 1,
+      "message": "Создал модуль util.js и подключил его в основном файле проекта.",
+      "attachment": null,
+      "score": 10,
+      "created_at": "2026-05-18T12:00:00Z",
+      "reviewed_at": "2026-05-19T12:00:00Z"
+    }
+  },
+  {
+    "model": "courses.submission",
+    "pk": 3,
+    "fields": {
+      "course": 3,
+      "control_point": 3,
+      "student": 1,
+      "message": "Сделал шаблонный вывод и связал его с маршрутами.",
+      "attachment": null,
+      "score": 13,
+      "created_at": "2026-05-20T14:00:00Z",
+      "reviewed_at": "2026-05-21T14:00:00Z"
+    }
+  },
+  {
+    "model": "courses.submission",
+    "pk": 4,
+    "fields": {
+      "course": 3,
+      "control_point": 4,
+      "student": 1,
+      "message": "Подготовил форму и модель, жду обратную связь по обработке POST.",
+      "attachment": null,
+      "score": null,
+      "created_at": "2026-05-24T16:00:00Z",
+      "reviewed_at": null
+    }
+  },
+  {
+    "model": "courses.submission",
+    "pk": 5,
+    "fields": {
+      "course": 5,
+      "control_point": 5,
+      "student": 1,
+      "message": "Сравнил пузырьковую и быструю сортировки по сложности и применимости.",
+      "attachment": null,
+      "score": 8,
+      "created_at": "2026-05-22T09:00:00Z",
+      "reviewed_at": "2026-05-23T09:00:00Z"
+    }
+  },
+  {
+    "model": "courses.submission",
+    "pk": 6,
+    "fields": {
+      "course": 1,
+      "control_point": 1,
+      "student": 2,
+      "message": "Повторил действия в REPL и подготовил краткое описание.",
+      "attachment": null,
+      "score": 7,
+      "created_at": "2026-05-17T11:00:00Z",
+      "reviewed_at": "2026-05-18T11:00:00Z"
+    }
+  },
+  {
+    "model": "courses.submission",
+    "pk": 7,
+    "fields": {
+      "course": 4,
+      "control_point": 3,
+      "student": 3,
+      "message": "Настроила маршруты и подключила шаблон с динамическими данными.",
+      "attachment": null,
+      "score": 14,
+      "created_at": "2026-05-20T10:30:00Z",
+      "reviewed_at": "2026-05-21T10:30:00Z"
+    }
+  },
+  {
+    "model": "courses.submission",
+    "pk": 8,
+    "fields": {
+      "course": 6,
+      "control_point": 5,
+      "student": 3,
+      "message": "Сделала сравнение сортировок и описала различия по сложности.",
+      "attachment": null,
+      "score": 9,
+      "created_at": "2026-05-25T12:30:00Z",
+      "reviewed_at": "2026-05-26T12:30:00Z"
+    }
+  }
+]
