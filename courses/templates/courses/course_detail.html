@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ course.code }}</title>
+    <link rel="stylesheet" href="{% static 'classless.css' %}">
+</head>
+<body>
+    <h1>{{ course.code }}</h1>
+    <p>Дисциплина: {{ course.discipline.title }}</p>
+    <p>Описание: {{ course.about }}</p>
+    <p>Преподаватель: {{ course.teacher }}</p>
+    <a href="{% url 'course_list' %}">Назад к курсам</a>
+</body>
+</html>

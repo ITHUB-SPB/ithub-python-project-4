@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Курсы</title>
+    <link rel="stylesheet" href="{% static 'classless.css' %}">
+</head>
+<body>
+    <h1>Мои курсы</h1>
+    <ul>
+        {% for course in courses %}
+            <li>
+                <a href="{% url 'course_detail' course.id %}">
+                    {{ course.code }} - {{ course.discipline.title }}
+                </a>
+                <p>{{ course.about }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'logout' %}">Выйти</a>
+</body>
+</html>

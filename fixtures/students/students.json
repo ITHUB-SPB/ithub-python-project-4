@@ -1,0 +1,65 @@
+[
+  {
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$wyEbTcPvbTOet9npIyftqZ$fNZVq/Qu9YbY1FPTZZA+hIYSg0weYVaigehPZE4mUfM=",
+      "username": "student1",
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$wyEbTcPvbTOet9npIyftqZ$fNZVq/Qu9YbY1FPTZZA+hIYSg0weYVaigehPZE4mUfM=",
+      "username": "student2",
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$wyEbTcPvbTOet9npIyftqZ$fNZVq/Qu9YbY1FPTZZA+hIYSg0weYVaigehPZE4mUfM=",
+      "username": "student3",
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": 1,
+    "fields": {
+      "account": 1,
+      "first_name": "Иван",
+      "last_name": "Иванов",
+      "middle_name": "Иванович",
+      "group": 1
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": 2,
+    "fields": {
+      "account": 2,
+      "first_name": "Петр",
+      "last_name": "Петров",
+      "middle_name": "Петрович",
+      "group": 1
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": 3,
+    "fields": {
+      "account": 3,
+      "first_name": "Сергей",
+      "last_name": "Сергеев",
+      "middle_name": "",
+      "group": 2
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "model": "courses.discipline",
+    "pk": 1,
+    "fields": {
+      "title": "Математика",
+      "duration": 144,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "courses.discipline",
+    "pk": 2,
+    "fields": {
+      "title": "Программирование",
+      "duration": 108,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "courses.discipline",
+    "pk": 3,
+    "fields": {
+      "title": "ООП на C#",
+      "duration": 216,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 1,
+    "fields": {
+      "code": "MATH-101",
+      "about": "Математика",
+      "discipline": 1,
+      "group": 1,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 1,
+    "fields": {
+      "code": "MATH-102",
+      "about": "Высшая математика",
+      "discipline": 1,
+      "group": 2,
+      "teacher": 2
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 2,
+    "fields": {
+      "code": "ICT-101",
+      "about": "Программирование",
+      "discipline": 2,
+      "group": 1,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 3,
+    "fields": {
+      "code": "ICT-102",
+      "about": "ООП",
+      "discipline": 2,
+      "group": 2,
+      "teacher": 2
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 4,
+    "fields": {
+      "code": "ICT-103",
+      "about": "Python",
+      "discipline": 2,
+      "group": 1,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 4,
+    "fields": {
+      "code": "ICT-104",
+      "about": "JavaScript",
+      "discipline": 2,
+      "group": 2,
+      "teacher": 2
+    }
+  }
+]

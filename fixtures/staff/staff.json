@@ -1,0 +1,62 @@
+[
+  {
+    "model": "accounts.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$wyEbTcPvbTOet9npIyftqZ$fNZVq/Qu9YbY1FPTZZA+hIYSg0weYVaigehPZE4mUfM=",
+      "username": "teacher1",
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$wyEbTcPvbTOet9npIyftqZ$fNZVq/Qu9YbY1FPTZZA+hIYSg0weYVaigehPZE4mUfM=",
+      "username": "teacher2",
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$wyEbTcPvbTOet9npIyftqZ$fNZVq/Qu9YbY1FPTZZA+hIYSg0weYVaigehPZE4mUfM=",
+      "username": "manager1",
+      "is_staff": true,
+      "is_superuser": true
+    }
+  },
+  {
+    "model": "staff.teacher",
+    "pk": 1,
+    "fields": {
+      "account": 4,
+      "first_name": "Анна",
+      "last_name": "Сидорова",
+      "middle_name": "Ивановна"
+    }
+  },
+  {
+    "model": "staff.teacher",
+    "pk": 2,
+    "fields": {
+      "account": 5,
+      "first_name": "Олег",
+      "last_name": "Смирнов",
+      "middle_name": ""
+    }
+  },
+  {
+    "model": "staff.manager",
+    "pk": 3,
+    "fields": {
+      "account": 6,
+      "first_name": "Елена",
+      "last_name": "Кузнецова",
+      "middle_name": "Викторовна"
+    }
+  }
+]
