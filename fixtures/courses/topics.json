@@ -1,0 +1,101 @@
+[
+  {
+    "model": "courses.topic",
+    "pk": 1,
+    "fields": {
+      "ordering_number": 1,
+      "title": "Введение в алгебру",
+      "content": "...",
+      "duration": 10,
+      "discipline": 1
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 2,
+    "fields": {
+      "ordering_number": 2,
+      "title": "Линейные уравнения",
+      "content": "...",
+      "duration": 15,
+      "discipline": 1
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 3,
+    "fields": {
+      "ordering_number": 3,
+      "title": "Квадратные уравнения",
+      "content": "...",
+      "duration": 20,
+      "discipline": 1
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 4,
+    "fields": {
+      "ordering_number": 1,
+      "title": "Основы синтаксиса Python",
+      "content": "...",
+      "duration": 12,
+      "discipline": 2
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 5,
+    "fields": {
+      "ordering_number": 2,
+      "title": "Условные операторы и циклы",
+      "content": "...",
+      "duration": 18,
+      "discipline": 2
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 6,
+    "fields": {
+      "ordering_number": 3,
+      "title": "Функции и модули",
+      "content": "...",
+      "duration": 22,
+      "discipline": 2
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 7,
+    "fields": {
+      "ordering_number": 1,
+      "title": "Введение в ООП",
+      "content": "...",
+      "duration": 14,
+      "discipline": 3
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 8,
+    "fields": {
+      "ordering_number": 2,
+      "title": "Классы и объекты в C#",
+      "content": "...",
+      "duration": 20,
+      "discipline": 3
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 9,
+    "fields": {
+      "ordering_number": 3,
+      "title": "Наследование и полиморфизм",
+      "content": "...",
+      "duration": 24,
+      "discipline": 3
+    }
+  }
+]
