@@ -1,0 +1,74 @@
+[
+	{
+		"model": "assignments.submission",
+		"pk": 1,
+		"fields": {
+			"student": 1,
+			"assignment": 1,
+			"answer": "Ответ на КТ...",
+			"score": 8,
+			"created_at": "2026-06-01T10:00:00Z",
+			"updated_at": "2026-06-01T12:00:00Z"
+		}
+	},
+	{
+		"model": "assignments.submission",
+		"pk": 2,
+		"fields": {
+			"student": 2,
+			"assignment": 1,
+			"answer": "Ответ на КТ...",
+			"score": 7,
+			"created_at": "2026-06-01T11:00:00Z",
+			"updated_at": "2026-06-01T13:00:00Z"
+		}
+	},
+	{
+		"model": "assignments.submission",
+		"pk": 3,
+		"fields": {
+			"student": 1,
+			"assignment": 2,
+			"answer": "Ответ на КТ...",
+			"score": 12,
+			"created_at": "2026-06-02T09:00:00Z",
+			"updated_at": "2026-06-02T14:00:00Z"
+		}
+	},
+	{
+		"model": "assignments.submission",
+		"pk": 4,
+		"fields": {
+			"student": 3,
+			"assignment": 2,
+			"answer": "Ответ на КТ...",
+			"score": null,
+			"created_at": "2026-06-02T10:30:00Z",
+			"updated_at": "2026-06-02T10:30:00Z"
+		}
+	},
+	{
+		"model": "assignments.submission",
+		"pk": 5,
+		"fields": {
+			"student": 1,
+			"assignment": 3,
+			"answer": "Ответ на КТ...",
+			"score": 18,
+			"created_at": "2026-06-03T08:00:00Z",
+			"updated_at": "2026-06-03T15:00:00Z"
+		}
+	},
+	{
+		"model": "assignments.submission",
+		"pk": 6,
+		"fields": {
+			"student": 2,
+			"assignment": 3,
+			"answer": "Ответ на КТ...",
+			"score": null,
+			"created_at": "2026-06-03T09:00:00Z",
+			"updated_at": "2026-06-03T09:00:00Z"
+		}
+	}
+]

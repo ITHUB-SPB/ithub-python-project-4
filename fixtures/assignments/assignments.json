@@ -1,0 +1,32 @@
+[
+  {
+    "model": "assignments.assignment",
+    "pk": 1,
+    "fields": {
+      "topic": 3,
+      "weight": 10,
+      "created_at": "2026-06-01T00:00:00Z",
+      "updated_at": "2026-06-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "assignments.assignment",
+    "pk": 2,
+    "fields": {
+      "topic": 6,
+      "weight": 15,
+      "created_at": "2026-06-01T00:00:00Z",
+      "updated_at": "2026-06-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "assignments.assignment",
+    "pk": 3,
+    "fields": {
+      "topic": 9,
+      "weight": 20,
+      "created_at": "2026-06-01T00:00:00Z",
+      "updated_at": "2026-06-01T00:00:00Z"
+    }
+  }
+]

@@ -6,17 +6,44 @@
     <link rel="stylesheet" href="{% static 'classless.css' %}">
 </head>
 <body>
-    <h1>Мои курсы</h1>
-    <ul>
-        {% for course in courses %}
-            <li>
-                <a href="{% url 'course_detail' course.id %}">
-                    {{ course.code }} - {{ course.discipline.title }}
-                </a>
-                <p>{{ course.about }}</p>
-            </li>
+    <h1>
+        {% if user.manager %}Все курсы
+        {% else %}Мои курсы
+        {% endif %}
+    </h1>
+    
+    {% if messages %}
+        <ul style="color: red;">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    {% if courses_with_score %}
+        {% for item in courses_with_score %}
+            <section>
+                <h3>
+                    <a href="{% url 'course_detail' item.course.id %}">
+                        {{ item.course.code }} - {{ item.course.discipline.title }}
+                    </a>
+                </h3>
+                <p>{{ item.course.about }}</p>
+                <p>Баллы за КТ: <span style="color: green;">{{ item.earned }}/{{ item.max }}</span></p>
+            </section>
         {% endfor %}
-    </ul>
-    <a href="{% url 'logout' %}">Выйти</a>
+    {% else %}
+        {% for course in courses %}
+            <section>
+                <h3>
+                    <a href="{% url 'course_detail' course.id %}">
+                        {{ course.code }} - {{ course.discipline.title }}
+                    </a>
+                </h3>
+                <p>{{ course.about }}</p>
+            </section>
+        {% endfor %}
+    {% endif %}
+    <p><a href="{% url 'logout' %}">Выйти</a></p>
 </body>
 </html>

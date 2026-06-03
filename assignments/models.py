@@ -17,7 +17,7 @@ class Assignment(models.Model):
     )
 
     created_at = models.DateTimeField(
-        auto_now_add=True,
+        auto_now=True,
         verbose_name='дата создания'
     )
 
@@ -62,7 +62,7 @@ class Submission(models.Model):
     )
 
     created_at = models.DateTimeField(
-        auto_now_add=True,
+        auto_now=True,
         verbose_name='дата создания'
     )
     

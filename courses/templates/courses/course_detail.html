@@ -1,15 +1,44 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <title>{{ course.code }}</title>
-    <link rel="stylesheet" href="{% static 'classless.css' %}">
-</head>
-<body>
-    <h1>{{ course.code }}</h1>
-    <p>Дисциплина: {{ course.discipline.title }}</p>
-    <p>Описание: {{ course.about }}</p>
-    <p>Преподаватель: {{ course.teacher }}</p>
-    <a href="{% url 'course_list' %}">Назад к курсам</a>
-</body>
+	<head>
+		<title>{{ course.code }}</title>
+		<link rel="stylesheet" href="{% static 'classless.css' %}" />
+	</head>
+	<body>
+		<h1>{{ course.code }}</h1>
+		<p>Дисциплина: {{ course.discipline.title }}</p>
+		<p>Описание: {{ course.about }}</p>
+		<p>Преподаватель: {{ course.teacher }}</p>
+
+		<h2>Учебные темы</h2>
+		<section>
+			<ul>
+				{% for item in topics_with_score %}
+				<li>
+					<a href="{% url 'topic_detail' item.topic.id %}">
+						{{ item.topic.ordering_number }}. {{ item.topic.title }}
+					</a>
+					<span>({{ item.topic.duration }} ч.)</span>
+					
+					{% if item.has_assignment %}
+						{% if item.submission %} 
+							{% if item.submission.score is not None %}
+								<span style="color: green; font-weight: bold;">
+									— Оценка: {{ item.submission.score }} / {{ item.max_score }}
+								</span>
+							{% else %}
+								<span style="color: orange;">— На проверке</span>
+							{% endif %} 
+						{% else %}
+							<span>— КТ ({{ item.max_score }} баллов)</span>
+						{% endif %}
+					{% endif %}
+				</li>
+				{% endfor %}
+			</ul>
+		</section>
+
+		<p><a href="{% url 'course_list' %}">Назад к курсам</a></p>
+	</body>
 </html>

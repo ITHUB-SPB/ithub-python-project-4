@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ topic.title }}</title>
+	<link rel="stylesheet" href="{% static 'classless.css' %}" />
+</head>
+<body>
+    <h1>{{ topic.ordering_number }}. {{ topic.title }}</h1>
+    <p>Дисциплина: {{ topic.discipline.title }} | Длительность: {{ topic.duration }} ч.</p>
+    
+    {% if messages %}
+        <ul style="color: red;">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <section>
+        {{ topic.content }}
+    </section>
+    
+    {% if has_assignment %}
+        <section>
+            <h2>Контрольная точка ({{ assignment.weight }} баллов)</h2>
+            
+            {% if submission %}
+                <h3>Ваш ответ:</h3>
+                <p>{{ submission.answer }}</p>
+                
+                {% if submission.score is not None %}
+                    <p style="color: green;">Оценка: {{ submission.score }} / {{ assignment.weight }}</p>
+                {% else %}
+                    <p style="color: orange;">На проверке</p>
+                {% endif %}
+            {% endif %}
+        </section>
+    {% endif %}
+    
+    <a href="{% url 'course_detail' course.id %}">Назад к курсу</a>
+</body>
+</html>
