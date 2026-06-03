@@ -19,6 +19,7 @@
                 <p>Конец: {{ course.course_end }}</p>
                 <p>Преподаватель: {{ course.teacher }}</p>
                 <p>Группа: {{ course.group }}</p>
+                <p>Баллы за контрольные точки: {{ course.current_score }} / {{ course.max_score }}</p>
             </div>
         {% endfor %}
     {% else %}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Топик</title>
+</head>
+<body>
+    <p><a href="/courses/{{ course.id }}">Назад к курсу</a></p>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <h1>{{ topic.title }}</h1>
+    <p>Дисциплина: {{ topic.discipline }}</p>
+    <p>Номер темы: {{ topic.ordering_number }}</p>
+    <p>Количество часов: {{ topic.duration }}</p>
+
+    <div>
+        {{ topic.content|linebreaks }}
+    </div>
+
+    {% if assignment %}
+        <h2>Контрольная точка</h2>
+        <p>Максимум баллов: {{ assignment.weight }}</p>
+
+        {% if submission %}
+            {% if has_score %}
+                <p>Ваша оценка: {{ submission.score }} / {{ assignment.weight }}</p>
+            {% else %}
+                <p>На проверке</p>
+            {% endif %}
+            <p>Ваш ответ:</p>
+            <p>{{ submission.answer|linebreaks }}</p>
+        {% else %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Отправить ответ</button>
+            </form>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

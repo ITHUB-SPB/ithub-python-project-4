@@ -1,0 +1,179 @@
+[
+    {
+        "model": "courses.discipline",
+        "pk": 1,
+        "fields": {
+            "title": "Python",
+            "duration": 72,
+            "curriculum": null,
+            "created_at": "2026-01-10T10:00:00Z",
+            "updated_at": "2026-01-11T10:00:00Z"
+        }
+    },
+    {
+        "model": "courses.discipline",
+        "pk": 2,
+        "fields": {
+            "title": "Django",
+            "duration": 64,
+            "curriculum": null,
+            "created_at": "2026-01-12T10:00:00Z",
+            "updated_at": "2026-01-13T10:00:00Z"
+        }
+    },
+    {
+        "model": "courses.discipline",
+        "pk": 3,
+        "fields": {
+            "title": "SQL",
+            "duration": 48,
+            "curriculum": null,
+            "created_at": "2026-01-14T10:00:00Z",
+            "updated_at": "2026-01-15T10:00:00Z"
+        }
+    },
+    {
+        "model": "courses.course",
+        "pk": 1,
+        "fields": {
+            "code": "PY-101",
+            "about": "Базовый курс Python",
+            "course_start": "2026-02-01",
+            "course_end": "2026-04-01",
+            "discipline": 1,
+            "group": 1,
+            "teacher": 1
+        }
+    },
+    {
+        "model": "courses.course",
+        "pk": 2,
+        "fields": {
+            "code": "PY-102",
+            "about": "Практика Python",
+            "course_start": "2026-04-10",
+            "course_end": "2026-06-10",
+            "discipline": 1,
+            "group": 2,
+            "teacher": 2
+        }
+    },
+    {
+        "model": "courses.course",
+        "pk": 3,
+        "fields": {
+            "code": "DJ-101",
+            "about": "Основы Django",
+            "course_start": "2026-02-05",
+            "course_end": "2026-04-05",
+            "discipline": 2,
+            "group": 1,
+            "teacher": 1
+        }
+    },
+    {
+        "model": "courses.course",
+        "pk": 4,
+        "fields": {
+            "code": "DJ-102",
+            "about": "Проект на Django",
+            "course_start": "2026-04-12",
+            "course_end": "2026-06-12",
+            "discipline": 2,
+            "group": 2,
+            "teacher": 2
+        }
+    },
+    {
+        "model": "courses.course",
+        "pk": 5,
+        "fields": {
+            "code": "SQL-101",
+            "about": "Введение в SQL",
+            "course_start": "2026-02-15",
+            "course_end": "2026-03-30",
+            "discipline": 3,
+            "group": 1,
+            "teacher": 2
+        }
+    },
+    {
+        "model": "courses.course",
+        "pk": 6,
+        "fields": {
+            "code": "SQL-102",
+            "about": "Запросы и оптимизация",
+            "course_start": "2026-04-20",
+            "course_end": "2026-06-01",
+            "discipline": 3,
+            "group": 2,
+            "teacher": 1
+        }
+    },
+    {
+        "model": "courses.topic",
+        "pk": 1,
+        "fields": {
+            "ordering_number": 1,
+            "title": "Введение в Python",
+            "content": "На этой теме студенты знакомятся с языком Python, синтаксисом и базовыми типами данных.",
+            "duration": 8,
+            "discipline": 1
+        }
+    },
+    {
+        "model": "courses.topic",
+        "pk": 2,
+        "fields": {
+            "ordering_number": 2,
+            "title": "Условия и циклы",
+            "content": "На этой теме студенты изучают ветвления, циклы и простые алгоритмы.",
+            "duration": 10,
+            "discipline": 1
+        }
+    },
+    {
+        "model": "courses.topic",
+        "pk": 3,
+        "fields": {
+            "ordering_number": 3,
+            "title": "Функции",
+            "content": "На этой теме студенты учатся создавать функции, передавать аргументы и возвращать значения.",
+            "duration": 12,
+            "discipline": 1
+        }
+    },
+    {
+        "model": "courses.topic",
+        "pk": 4,
+        "fields": {
+            "ordering_number": 1,
+            "title": "Структура проекта Django",
+            "content": "На этой теме студенты узнают, как устроен проект Django и для чего нужны приложения.",
+            "duration": 8,
+            "discipline": 2
+        }
+    },
+    {
+        "model": "courses.topic",
+        "pk": 5,
+        "fields": {
+            "ordering_number": 2,
+            "title": "Модели и миграции",
+            "content": "На этой теме студенты создают модели, делают миграции и работают с базой данных.",
+            "duration": 10,
+            "discipline": 2
+        }
+    },
+    {
+        "model": "courses.topic",
+        "pk": 6,
+        "fields": {
+            "ordering_number": 3,
+            "title": "Шаблоны и формы",
+            "content": "На этой теме студенты подключают шаблоны, передают данные из вьюшек и создают формы.",
+            "duration": 12,
+            "discipline": 2
+        }
+    }
+]

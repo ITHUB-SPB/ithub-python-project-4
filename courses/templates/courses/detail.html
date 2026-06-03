@@ -16,6 +16,32 @@
         <p>Конец: {{ course.course_end }}</p>
         <p>Преподаватель: {{ course.teacher }}</p>
         <p>Группа: {{ course.group }}</p>
+
+        <h2>Темы</h2>
+        {% if topics %}
+            <ul>
+                {% for topic in topics %}
+                    <li>
+                        <a href="/topics/{{ topic.id }}">{{ topic.title }}</a>
+                        <span>({{ topic.duration }} ч.)</span>
+                        {% if topic.assignment_item %}
+                            <strong>Контрольная точка</strong>
+                            {% if topic.submission %}
+                                {% if topic.has_score %}
+                                    <span>{{ topic.submission.score }} / {{ topic.assignment_item.weight }}</span>
+                                {% else %}
+                                    <span>На проверке</span>
+                                {% endif %}
+                            {% else %}
+                                <span>0 / {{ topic.assignment_item.weight }}</span>
+                            {% endif %}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Тем пока нет</p>
+        {% endif %}
     {% else %}
         <p>Курс недоступен</p>
     {% endif %}

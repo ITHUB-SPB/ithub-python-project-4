@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     "students.apps.StudentsConfig",
     "staff.apps.StaffConfig",
     "courses.apps.CoursesConfig",
+    "assignments.apps.AssignmentsConfig",
 ]
 
 MIDDLEWARE = [
@@ -36,6 +37,7 @@ TEMPLATES = [
             BASE_DIR / "accounts" / "templates",
             BASE_DIR / "staff" / "templates",
             BASE_DIR / "courses" / "templates",
+            BASE_DIR / "assignments" / "templates",
         ],
         "APP_DIRS": True,
         "OPTIONS": {

@@ -1,0 +1,90 @@
+[
+    {
+        "model": "accounts.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$abc123xyz987$tQ1X1UQ9e4M3c7ymID5MBTVTiAj8rl4V6AHYM0UBLkM=",
+            "last_login": null,
+            "username": "student1",
+            "is_staff": false,
+            "is_superuser": false,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "accounts.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$abc123xyz987$tQ1X1UQ9e4M3c7ymID5MBTVTiAj8rl4V6AHYM0UBLkM=",
+            "last_login": null,
+            "username": "student2",
+            "is_staff": false,
+            "is_superuser": false,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "accounts.user",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$abc123xyz987$tQ1X1UQ9e4M3c7ymID5MBTVTiAj8rl4V6AHYM0UBLkM=",
+            "last_login": null,
+            "username": "student3",
+            "is_staff": false,
+            "is_superuser": false,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "students.group",
+        "pk": 1,
+        "fields": {
+            "title": "ИВТ-11",
+            "course": "1"
+        }
+    },
+    {
+        "model": "students.group",
+        "pk": 2,
+        "fields": {
+            "title": "ИВТ-21",
+            "course": "2"
+        }
+    },
+    {
+        "model": "students.student",
+        "pk": 1,
+        "fields": {
+            "first_name": "Иван",
+            "last_name": "Иванов",
+            "patronymic": "Иванович",
+            "account": 1,
+            "group": 1
+        }
+    },
+    {
+        "model": "students.student",
+        "pk": 2,
+        "fields": {
+            "first_name": "Петр",
+            "last_name": "Петров",
+            "patronymic": "Петрович",
+            "account": 2,
+            "group": 1
+        }
+    },
+    {
+        "model": "students.student",
+        "pk": 3,
+        "fields": {
+            "first_name": "Сидор",
+            "last_name": "Сидоров",
+            "patronymic": "",
+            "account": 3,
+            "group": 2
+        }
+    }
+]
