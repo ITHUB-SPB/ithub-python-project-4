@@ -39,6 +39,14 @@ class CourseListView(LoginRequiredMixin, ListView):
 
         for course in context["courses"]:
             course.total_score = scores_dict.get(course.discipline_id, 0)
+            if course.total_score >= 90:
+                course.grade = "5"
+            elif course.total_score >= 70:
+                course.grade = "4"
+            elif course.total_score >= 50:
+                course.grade = "3"
+            else:
+                course.grade = "2"
 
         sort = self.request.GET.get("sort", "")
         courses = list(context["courses"])
@@ -47,11 +55,9 @@ class CourseListView(LoginRequiredMixin, ListView):
         elif sort == "score_desc":
             courses.sort(key=lambda c: c.total_score, reverse=True)
 
-
-        context['courses'] = courses
-        context['current_sort'] = sort
+        context["courses"] = courses
+        context["current_sort"] = sort
         return context
-
 
 class CourseDetailView(LoginRequiredMixin, DetailView):
     model = Course

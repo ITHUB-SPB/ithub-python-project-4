@@ -59,6 +59,7 @@
                   <span id="sort-icon">Баллы ⬆️</span>
                 </a>
               </th>
+              <th>оценка</th>
             </tr>
           </thead>
           <tbody id="courses-body">
@@ -75,6 +76,7 @@
               </td>
               <td>{{ course.group.title }}</td>
               <td>{{ course.total_score }}</td>
+              <td>{{ course.grade }}</td>
             </tr>
             {% empty %}
             <tr>
