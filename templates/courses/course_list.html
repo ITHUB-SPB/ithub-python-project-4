@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Главная</title>
     {% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">  </head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2" />
+  </head>
   <body>
     <body>
       <header>
         <img src="" alt="" class="logo" />
 
-        <div class="profile" style="position: relative;">
+        <div class="profile" style="position: relative">
           <h1>{{ user.student.surname }} {{ user.student.name.0 }}.</h1>
           <div
             class="pfp"
@@ -26,8 +27,8 @@
               position: absolute;
               background: white;
               border: #93abbc 1px solid;
-              top:85px;
-              right:0;
+              top: 85px;
+              right: 0;
             "
             onmouseleave="this.style.display = 'none'"
           >
@@ -80,7 +81,7 @@
             </tr>
             {% empty %}
             <tr>
-              <td colspan="4">нет курсов.</td>
+              <td colspan="5">нет курсов.</td>
             </tr>
             {% endfor %}
           </tbody>
@@ -98,8 +99,7 @@
           tbody.innerHTML = "";
 
           if (data.length === 0) {
-            tbody.innerHTML =
-              '<tr><td colspan="4">Нет курсов.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="5">Нет курсов.</td></tr>';
             return;
           }
 
@@ -110,6 +110,7 @@
             <td>${course.teacher}</td>
             <td>${course.group}</td>
             <td>${course.score}</td>
+            <td>${course.grade}</td>
         `;
             tbody.appendChild(row);
           });

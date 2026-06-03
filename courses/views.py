@@ -141,12 +141,23 @@ class CourseListAPIView(LoginRequiredMixin, View):
 
         data = []
         for course in courses:
+            total = scores_dict.get(course.discipline_id, 0)
+            if total >= 90:
+                grade = "5"
+            elif total >= 70:
+                grade = "4"
+            elif total >= 50:
+                grade = "3"
+            else:
+                grade = "2"
+
             data.append({
                 "id": course.pk,
                 "discipline": course.discipline.title,
                 "teacher": f"{course.teacher.surname} {course.teacher.name[0]}.",
                 "group": course.group.title,
-                "score": scores_dict.get(course.discipline_id, 0),
+                "score": total,
+                "grade": grade,
             })
 
         if sort == "score_asc":
