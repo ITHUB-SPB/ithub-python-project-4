@@ -14,6 +14,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "accounts.apps.AccountsConfig",
     "students.apps.StudentsConfig",
+    "courses.apps.CoursesConfig",
+    "staff.apps.StaffConfig",
 ]
 
 MIDDLEWARE = [
@@ -29,7 +31,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "students" / "templates", BASE_DIR / "accounts" / "templates"],
+        "DIRS": [BASE_DIR / "template"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
