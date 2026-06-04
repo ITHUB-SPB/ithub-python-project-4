@@ -1,0 +1,70 @@
+[
+  {
+    "model": "assignments.assignment",
+    "pk": 1,
+    "fields": {
+      "topic": 3,
+      "weight": 20,
+      "created_at": "2026-02-15T08:00:00Z",
+      "updated_at": "2026-02-15T08:00:00Z"
+    }
+  },
+  {
+    "model": "assignments.assignment",
+    "pk": 2,
+    "fields": {
+      "topic": 6,
+      "weight": 25,
+      "created_at": "2026-03-15T08:00:00Z",
+      "updated_at": "2026-03-15T08:00:00Z"
+    }
+  },
+  {
+    "model": "assignments.submission",
+    "pk": 1,
+    "fields": {
+      "student": 1,
+      "assignment": 1,
+      "answer": "Решение по рядам от студента 1.",
+      "score": 18,
+      "created_at": "2026-02-20T08:00:00Z",
+      "updated_at": "2026-02-21T08:00:00Z"
+    }
+  },
+  {
+    "model": "assignments.submission",
+    "pk": 2,
+    "fields": {
+      "student": 2,
+      "assignment": 1,
+      "answer": "Решение по рядам от студента 2.",
+      "score": 16,
+      "created_at": "2026-02-20T08:30:00Z",
+      "updated_at": "2026-02-21T08:30:00Z"
+    }
+  },
+  {
+    "model": "assignments.submission",
+    "pk": 3,
+    "fields": {
+      "student": 1,
+      "assignment": 2,
+      "answer": "Ответ по функциям от студента 1.",
+      "score": 22,
+      "created_at": "2026-03-20T08:00:00Z",
+      "updated_at": "2026-03-21T08:00:00Z"
+    }
+  },
+  {
+    "model": "assignments.submission",
+    "pk": 4,
+    "fields": {
+      "student": 3,
+      "assignment": 2,
+      "answer": "Ответ по функциям от студента 3.",
+      "score": null,
+      "created_at": "2026-03-20T09:00:00Z",
+      "updated_at": "2026-03-20T09:00:00Z"
+    }
+  }
+]

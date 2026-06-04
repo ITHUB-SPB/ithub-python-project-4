@@ -1,0 +1,101 @@
+[
+  {
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$student1salt$9hCjUljBzfM4VD/gHbxhRorhv53GZuQVvT1FEKXsNpI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "student1",
+      "is_active": true,
+      "is_staff": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$student2salt$klkkb87CmGx/DQ07q7O9t6xQC+BGggGckVmfS56ziS8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "student2",
+      "is_active": true,
+      "is_staff": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$student3salt$Fd+Fx+1p3O26p9N/x1RwyGbbN8YFmpybqaZLcYrLFDI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "student3",
+      "is_active": true,
+      "is_staff": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "students.group",
+    "pk": 1,
+    "fields": {
+      "title": "P-101",
+      "course": "1"
+    }
+  },
+  {
+    "model": "students.group",
+    "pk": 2,
+    "fields": {
+      "title": "P-202",
+      "course": "2"
+    }
+  },
+  {
+    "model": "students.group",
+    "pk": 3,
+    "fields": {
+      "title": "P-303",
+      "course": "3"
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": 1,
+    "fields": {
+      "first_name": "Иван",
+      "last_name": "Петров",
+      "middle_name": "Олегович",
+      "account": 1,
+      "group": 1
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": 2,
+    "fields": {
+      "first_name": "Мария",
+      "last_name": "Соколова",
+      "middle_name": "Игоревна",
+      "account": 2,
+      "group": 2
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": 3,
+    "fields": {
+      "first_name": "Антон",
+      "last_name": "Крылов",
+      "middle_name": "Сергеевич",
+      "account": 3,
+      "group": 3
+    }
+  }
+]

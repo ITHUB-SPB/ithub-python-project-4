@@ -1,0 +1,74 @@
+[
+  {
+    "model": "accounts.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$teacher1salt$E6JMb9bEB/xR6uSVsBVpkEf8c3AGt0eZfHG1k/8d5sY=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "teacher1",
+      "is_active": true,
+      "is_staff": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$teacher2salt$SuP/T9tHWl5nVvDd8LFmtpPEwsxBe0JCpwN01wIzO8M=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "teacher2",
+      "is_active": true,
+      "is_staff": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$manager1salt$WI34XS/sCqHCkUyee6erbCMJlPoAu781ItUjiU1/vEQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "manager1",
+      "is_active": true,
+      "is_staff": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "staff.teacher",
+    "pk": 1,
+    "fields": {
+      "first_name": "Елена",
+      "last_name": "Васильева",
+      "middle_name": "Павловна",
+      "account": 4
+    }
+  },
+  {
+    "model": "staff.teacher",
+    "pk": 2,
+    "fields": {
+      "first_name": "Дмитрий",
+      "last_name": "Кузнецов",
+      "middle_name": "Андреевич",
+      "account": 5
+    }
+  },
+  {
+    "model": "staff.manager",
+    "pk": 1,
+    "fields": {
+      "first_name": "Ольга",
+      "last_name": "Романова",
+      "middle_name": "Ильинична",
+      "account": 6
+    }
+  }
+]

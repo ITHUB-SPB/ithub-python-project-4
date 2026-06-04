@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ topic.title }}</title>
+</head>
+<body>
+    <p><a href="/courses">К курсам</a></p>
+    <h1>{{ topic.ordering_number }}. {{ topic.title }}</h1>
+    <p>Дисциплина: {{ topic.discipline.title }}</p>
+    <p>Часы: {{ topic.duration }}</p>
+    <div>{{ topic.content|linebreaks }}</div>
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    {% if assignment %}
+        <h2>Контрольная точка</h2>
+        <p>Максимум баллов: {{ assignment.weight }}</p>
+        {% if submission %}
+            {% if submission.score or submission.score == 0 %}
+                <p>Оценка: {{ submission.score }} / {{ assignment.weight }}</p>
+            {% else %}
+                <p>На проверке</p>
+            {% endif %}
+            <p>Ваш ответ:</p>
+            <div>{{ submission.answer|linebreaks }}</div>
+        {% else %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Отправить</button>
+            </form>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

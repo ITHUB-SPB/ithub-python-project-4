@@ -1,0 +1,182 @@
+[
+  {
+    "model": "courses.discipline",
+    "pk": 1,
+    "fields": {
+      "code": "MATH-101",
+      "title": "Высшая математика",
+      "duration": 72,
+      "curriculum": "",
+      "created_at": "2026-01-10T08:00:00Z",
+      "updated_at": "2026-01-20T08:00:00Z"
+    }
+  },
+  {
+    "model": "courses.discipline",
+    "pk": 2,
+    "fields": {
+      "code": "PY-201",
+      "title": "Программирование на Python",
+      "duration": 64,
+      "curriculum": "",
+      "created_at": "2026-01-11T08:00:00Z",
+      "updated_at": "2026-01-21T08:00:00Z"
+    }
+  },
+  {
+    "model": "courses.discipline",
+    "pk": 3,
+    "fields": {
+      "code": "DB-301",
+      "title": "Базы данных",
+      "duration": 56,
+      "curriculum": "",
+      "created_at": "2026-01-12T08:00:00Z",
+      "updated_at": "2026-01-22T08:00:00Z"
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 1,
+    "fields": {
+      "code": "C-MATH-1",
+      "about": "Курс для первой группы",
+      "course_start": "2026-02-01",
+      "course_end": "2026-05-30",
+      "discipline": 1,
+      "group": 1,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 2,
+    "fields": {
+      "code": "C-MATH-2",
+      "about": "Курс для второй группы",
+      "course_start": "2026-02-01",
+      "course_end": "2026-05-30",
+      "discipline": 1,
+      "group": 2,
+      "teacher": 2
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 3,
+    "fields": {
+      "code": "C-PY-1",
+      "about": "Python для первой группы",
+      "course_start": "2026-03-01",
+      "course_end": "2026-06-10",
+      "discipline": 2,
+      "group": 1,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 4,
+    "fields": {
+      "code": "C-PY-3",
+      "about": "Python для третьей группы",
+      "course_start": "2026-03-01",
+      "course_end": "2026-06-10",
+      "discipline": 2,
+      "group": 3,
+      "teacher": 2
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 5,
+    "fields": {
+      "code": "C-DB-2",
+      "about": "Базы данных для второй группы",
+      "course_start": "2026-04-01",
+      "course_end": "2026-06-20",
+      "discipline": 3,
+      "group": 2,
+      "teacher": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 6,
+    "fields": {
+      "code": "C-DB-3",
+      "about": "Базы данных для третьей группы",
+      "course_start": "2026-04-01",
+      "course_end": "2026-06-20",
+      "discipline": 3,
+      "group": 3,
+      "teacher": 2
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 1,
+    "fields": {
+      "ordering_number": 1,
+      "title": "Пределы и производные",
+      "content": "Основы пределов, производных и простые примеры вычислений.",
+      "duration": 10,
+      "discipline": 1
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 2,
+    "fields": {
+      "ordering_number": 2,
+      "title": "Интегралы",
+      "content": "Неопределенный и определенный интеграл, базовые приемы.",
+      "duration": 12,
+      "discipline": 1
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 3,
+    "fields": {
+      "ordering_number": 3,
+      "title": "Ряды",
+      "content": "Числовые ряды и признаки сходимости.",
+      "duration": 14,
+      "discipline": 1
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 4,
+    "fields": {
+      "ordering_number": 1,
+      "title": "Переменные и типы",
+      "content": "Введение в переменные, числа, строки и логические значения.",
+      "duration": 8,
+      "discipline": 2
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 5,
+    "fields": {
+      "ordering_number": 2,
+      "title": "Условия и циклы",
+      "content": "Операторы if, for и while с простыми задачами.",
+      "duration": 10,
+      "discipline": 2
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 6,
+    "fields": {
+      "ordering_number": 3,
+      "title": "Функции",
+      "content": "Объявление функций, параметры и возвращаемые значения.",
+      "duration": 12,
+      "discipline": 2
+    }
+  }
+]

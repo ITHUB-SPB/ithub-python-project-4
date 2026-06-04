@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ course.discipline.title }}</title>
+</head>
+<body>
+    <p><a href="/courses">Назад к курсам</a></p>
+    <h1>{{ course.discipline.title }}</h1>
+    <p>Код дисциплины: {{ course.discipline.code }}</p>
+    <p>Код курса: {{ course.code }}</p>
+    <p>Длительность: {{ course.discipline.duration }} ч.</p>
+    <p>Преподаватель: {{ course.teacher }}</p>
+    <p>Период: {{ course.course_start }} - {{ course.course_end }}</p>
+    <p>{{ course.about }}</p>
+    <h2>Темы</h2>
+    {% for item in items %}
+        <div>
+            <p>
+                <a href="/topics/{{ item.topic.id }}">{{ item.topic.ordering_number }}. {{ item.topic.title }}</a>
+            </p>
+            <p>Часы: {{ item.topic.duration }}</p>
+            {% if item.assignment %}
+                <p>Контрольная точка: да</p>
+                <p>Баллы: {{ item.submission.score|default:"0" }} / {{ item.assignment.weight }}</p>
+            {% else %}
+                <p>Контрольная точка: нет</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+</body>
+</html>

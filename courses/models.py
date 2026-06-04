@@ -1,0 +1,93 @@
+from django.core.validators import MinValueValidator
+from django.db import models
+
+from staff.models import Teacher
+from students.models import Group
+
+
+class Discipline(models.Model):
+    code = models.CharField(max_length=15, unique=True, verbose_name="код")
+    title = models.CharField(max_length=50, verbose_name="название")
+    duration = models.PositiveIntegerField(validators=[MinValueValidator(0)], verbose_name="длительность")
+    curriculum = models.FileField(upload_to="curriculums/", blank=True, null=True, verbose_name="учебный план")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="создано")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="обновлено")
+
+    class Meta:
+        verbose_name = "дисциплина"
+        verbose_name_plural = "дисциплины"
+        ordering = ["-updated_at", "-created_at"]
+        indexes = [models.Index(fields=["code"]), models.Index(fields=["title"]), models.Index(fields=["duration"])]
+
+    def __str__(self):
+        return f"{self.code} {self.title}"
+
+
+class Course(models.Model):
+    code = models.CharField(max_length=15, verbose_name="код курса")
+    about = models.CharField(max_length=200, blank=True, verbose_name="описание")
+    course_start = models.DateField(blank=True, null=True, verbose_name="дата начала")
+    course_end = models.DateField(blank=True, null=True, verbose_name="дата окончания")
+    discipline = models.ForeignKey(
+        Discipline,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="courses",
+        verbose_name="дисциплина",
+    )
+    group = models.ForeignKey(
+        Group,
+        on_delete=models.CASCADE,
+        related_name="courses",
+        verbose_name="группа",
+    )
+    teacher = models.ForeignKey(
+        Teacher,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="courses",
+        verbose_name="преподаватель",
+    )
+
+    class Meta:
+        verbose_name = "курс"
+        verbose_name_plural = "курсы"
+        ordering = ["discipline__code", "code"]
+        indexes = [
+            models.Index(fields=["code"]),
+            models.Index(fields=["course_start"]),
+            models.Index(fields=["course_end"]),
+            models.Index(fields=["group"]),
+            models.Index(fields=["teacher"]),
+        ]
+
+    def __str__(self):
+        return f"{self.code} {self.discipline}"
+
+
+class Topic(models.Model):
+    ordering_number = models.PositiveIntegerField(verbose_name="номер")
+    title = models.CharField(max_length=50, verbose_name="название")
+    content = models.TextField(verbose_name="содержимое")
+    duration = models.PositiveIntegerField(verbose_name="часы")
+    discipline = models.ForeignKey(
+        Discipline,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="topics",
+        verbose_name="дисциплина",
+    )
+
+    class Meta:
+        verbose_name = "тема"
+        verbose_name_plural = "темы"
+        ordering = ["discipline", "ordering_number"]
+        constraints = [
+            models.UniqueConstraint(fields=["ordering_number", "discipline"], name="unique_topic_number_in_discipline")
+        ]
+
+    def __str__(self):
+        return f"{self.ordering_number}. {self.title}"
