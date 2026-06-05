@@ -44,7 +44,12 @@ class Course(models.Model):
 
 class Topic(models.Model):
     """Учебная тема"""
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='topics', verbose_name='курс')
+    course = models.ForeignKey(
+        'Course', 
+        on_delete=models.CASCADE, 
+        related_name='topics', 
+        verbose_name='курс'
+    )
     title = models.CharField(max_length=200, verbose_name='название темы')
     content = models.TextField(verbose_name='содержание темы')
     order = models.PositiveIntegerField(default=0, verbose_name='порядок')
@@ -55,11 +60,29 @@ class Topic(models.Model):
     is_completed = models.BooleanField(default=False, verbose_name='пройдено')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='дата обновления')
+    
+    ordering_number = models.PositiveIntegerField(
+        default=0,
+        verbose_name='порядковый номер'
+    )
+    duration = models.PositiveIntegerField(
+        default=0,
+        verbose_name='количество часов'
+    )
+    discipline = models.ForeignKey(
+        'Discipline',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        verbose_name='дисциплина',
+        related_name='topics'
+    )
 
     class Meta:
         verbose_name = 'Учебная тема'
         verbose_name_plural = 'Учебные темы'
-        ordering = ['order']
+        ordering = ['discipline__title', 'ordering_number', 'order']
+        unique_together = [['ordering_number', 'discipline']]
 
     def __str__(self):
         return self.title

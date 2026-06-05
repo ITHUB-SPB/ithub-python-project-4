@@ -13,7 +13,7 @@ urlpatterns = [
     path('auth/logout/', logout_view, name='logout'),
     path('courses/', course_list, name='course_list'),
     path('courses/<int:id>/', course_detail, name='course_detail'),
-    path('courses/<int:course_id>/topic/<int:topic_id>/', topic_detail, name='topic_detail'),
+    path('topics/<int:topic_id>/', topic_detail, name='topic_detail'),  # ИЗМЕНЕНО (без course_id)
 ]
 
 if settings.DEBUG:

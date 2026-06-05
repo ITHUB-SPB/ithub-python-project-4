@@ -1,0 +1,62 @@
+[
+  {
+    "model": "courses.topic",
+    "pk": 1,
+    "fields": {
+      "course": 1,
+      "title": "Введение в DOM",
+      "content": "Document Object Model (DOM) — это программный интерфейс...",
+      "order": 1,
+      "hours": 4,
+      "tests_count": 2,
+      "assignments_count": 1,
+      "info_blocks": 3,
+      "is_completed": false,
+      "created_at": "2025-01-01T10:00:00Z",
+      "updated_at": "2025-01-01T10:00:00Z",
+      "ordering_number": 1,
+      "duration": 4,
+      "discipline": 1
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 2,
+    "fields": {
+      "course": 1,
+      "title": "Поиск элементов в DOM",
+      "content": "Методы getElementById, querySelector, querySelectorAll...",
+      "order": 2,
+      "hours": 6,
+      "tests_count": 3,
+      "assignments_count": 1,
+      "info_blocks": 4,
+      "is_completed": false,
+      "created_at": "2025-01-01T10:00:00Z",
+      "updated_at": "2025-01-01T10:00:00Z",
+      "ordering_number": 2,
+      "duration": 6,
+      "discipline": 1
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 3,
+    "fields": {
+      "course": 3,
+      "title": "Основы Node.js",
+      "content": "Node.js — среда выполнения JavaScript на сервере...",
+      "order": 1,
+      "hours": 3,
+      "tests_count": 2,
+      "assignments_count": 1,
+      "info_blocks": 3,
+      "is_completed": false,
+      "created_at": "2025-01-01T10:00:00Z",
+      "updated_at": "2025-01-01T10:00:00Z",
+      "ordering_number": 1,
+      "duration": 3,
+      "discipline": 2
+    }
+  }
+]
