@@ -24,5 +24,43 @@
         {{ course.course_end }}
     </p>
 
+    <hr>
+
+    <h2>Темы курса</h2>
+
+    {% for item in topics_data %}
+        <div style="margin-bottom:15px;">
+
+            <p>
+                <strong>
+                    <a href="/courses/topics/{{ item.topic.id }}/">
+                        {{ item.topic.title }}
+                    </a>
+                </strong>
+            </p>
+
+            <p>
+                Часов на изучение:
+                {{ item.topic.duration }}
+            </p>
+
+            {% if item.assignment %}
+                <p>
+                    Контрольная точка
+                </p>
+
+                <p>
+                    Баллы:
+                    {{ item.score|default:0 }}
+                    /
+                    {{ item.assignment.weight }}
+                </p>
+            {% endif %}
+
+        </div>
+    {% empty %}
+        <p>Темы отсутствуют.</p>
+    {% endfor %}
+
 </body>
 </html>

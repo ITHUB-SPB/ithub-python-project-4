@@ -45,3 +45,28 @@ class Course(models.Model):
             models.Index(fields=['code']),
             models.Index(fields=['course_start']),
         ]
+
+class Topic(models.Model):
+    ordering_number = models.PositiveIntegerField(verbose_name='Порядковый номер')
+    
+    title = models.CharField(max_length=50, verbose_name='Название темы')
+    content = models.TextField(verbose_name='Содержание')
+    duration = models.PositiveIntegerField(verbose_name='Количество часов')
+
+    discipline = models.ForeignKey('Discipline', on_delete=models.SET_NULL, null=True, verbose_name='Дисциплина')
+
+    class Meta:
+        verbose_name = 'Тема'
+        verbose_name_plural = 'Темы'
+
+        ordering = ['discipline', 'ordering_number',]
+
+        constraints = [
+            models.UniqueConstraint(
+                fields=['ordering_number', 'discipline'],
+                name='unique_topic_ordering_in_discipline'
+            )
+        ]
+
+    def __str__(self):
+        return f'{self.ordering_number}. {self.title}'

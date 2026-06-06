@@ -5,25 +5,47 @@
 </head>
 <body>
 
-    <h1>Список курсов</h1>
+<h1>Список курсов</h1>
 
-    <p>Количество курсов: {{ courses|length }}</p>
+<p>Количество курсов: {{ courses_data|length }}</p>
 
-    {% for course in courses %}
-        <div style="margin-bottom:20px;">
-            <h3>{{ course.code }}</h3>
+{% for item in courses_data %}
+    <div style="margin-bottom:20px; border:1px solid black; padding:10px;">
 
-            <p>{{ course.about }}</p>
+        <h3>{{ item.course.code }}</h3>
+
+        <p>{{ item.course.about }}</p>
+
+        <p>
+            <strong>Дисциплина:</strong>
+            {{ item.course.discipline }}
+        </p>
+
+        {% if item.assignment %}
+            <p>
+                <strong>Максимальный балл:</strong>
+                {{ item.assignment.weight }}
+            </p>
 
             <p>
-                <a href="/courses/{{ course.id }}">
-                    Открыть курс
-                </a>
+                <strong>Получено баллов:</strong>
+                {{ item.score }}
             </p>
-        </div>
-    {% empty %}
-        <p>Курсов нет.</p>
-    {% endfor %}
+        {% else %}
+            <p>Контрольная точка отсутствует</p>
+        {% endif %}
+
+        <p>
+            <a href="/courses/{{ item.course.id }}">
+                Открыть курс
+            </a>
+        </p>
+
+    </div>
+
+{% empty %}
+    <p>Курсов нет.</p>
+{% endfor %}
 
 </body>
 </html>

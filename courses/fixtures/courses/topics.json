@@ -1,0 +1,69 @@
+[
+    {
+        "model": "courses.topic",
+        "pk": 1,
+        "fields": {
+            "ordering_number": 1,
+            "title": "Введение в DB",
+            "content": "Описание темы",
+            "duration": 4,
+            "discipline": 1
+        }
+    },
+    {
+        "model": "courses.topic",
+        "pk": 2,
+        "fields": {
+            "ordering_number": 2,
+            "title": "Вторая тема DB",
+            "content": "Описание темы",
+            "duration": 6,
+            "discipline": 1
+        }
+    },
+    {
+        "model": "courses.topic",
+        "pk": 3,
+        "fields": {
+            "ordering_number": 3,
+            "title": "КТ по DB",
+            "content": "Описание темы",
+            "duration": 8,
+            "discipline": 1
+        }
+    },
+
+    {
+        "model": "courses.topic",
+        "pk": 4,
+        "fields": {
+            "ordering_number": 1,
+            "title": "Основы C#",
+            "content": "Описание темы",
+            "duration": 4,
+            "discipline": 2
+        }
+    },
+    {
+        "model": "courses.topic",
+        "pk": 5,
+        "fields": {
+            "ordering_number": 2,
+            "title": "Типы данных в C#",
+            "content": "Описание темы",
+            "duration": 6,
+            "discipline": 2
+        }
+    },
+    {
+        "model": "courses.topic",
+        "pk": 6,
+        "fields": {
+            "ordering_number": 3,
+            "title": "КТ по C#",
+            "content": "Описание темы",
+            "duration": 8,
+            "discipline": 2
+        }
+    }
+]

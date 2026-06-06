@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ topic.title }}</title>
+</head>
+<body>
+
+<h1>{{ topic.title }}</h1>
+
+<p>
+    Дисциплина:
+    {{ topic.discipline }}
+</p>
+
+<p>
+    Часов:
+    {{ topic.duration }}
+</p>
+
+<hr>
+
+<p>
+    {{ topic.content }}
+</p>
+
+{% for message in messages %}
+    <p>
+        <strong>{{ message }}</strong>
+    </p>
+{% endfor %}
+
+{% if assignment %}
+
+    <hr>
+
+    <h2>Контрольная точка</h2>
+
+    <p>
+        Максимальный балл:
+        {{ assignment.weight }}
+    </p>
+
+    {% if submission %}
+
+        {% if submission.score %}
+
+            <p>
+                Ваша оценка:
+                {{ submission.score }}
+                /
+                {{ assignment.weight }}
+            </p>
+
+        {% else %}
+
+            <p>
+                На проверке
+            </p>
+
+        {% endif %}
+
+    {% else %}
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            <p>
+                <textarea
+                    name="answer"
+                    rows="10"
+                    cols="60"
+                    required
+                ></textarea>
+            </p>
+
+            <button type="submit">
+                Отправить ответ
+            </button>
+
+        </form>
+
+    {% endif %}
+
+{% endif %}
+
+</body>
+</html>
